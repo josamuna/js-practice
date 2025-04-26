@@ -13,7 +13,7 @@ A journey to practice JavaScript concepts, ranging from easy to advanced.
 
 - [x] Day 01: Introduction to JavaScript & Setting Up the Environment - [Video](https://youtu.be/t8QXF85YovE)
 - [x] Day 02: Variables (let, const, var) & Data Types - [Video](https://www.youtube.com/watch?v=tVqy4Tw0i64)
-- [ ] Day 03: Master Operators and Expressions - [Video](https://youtu.be/vI95K-_JLOw)
+- [x] Day 03: Master Operators and Expressions - [Video](https://youtu.be/vI95K-_JLOw)
 - [ ] Day 04: Mastering Control Flow with Quizzes - [Video](https://youtu.be/Fn_DhBu3VyU)
 - [ ] Day 05: Mastering Loops and Iterations with Quizzes - [Video](https://youtu.be/MDR43-2GvtA)
 - [ ] Day 06: Mastering Functions and its Use Cases with Quizzes - [Video](https://youtu.be/6UJ9SyHvkJY)
