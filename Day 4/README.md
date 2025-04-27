@@ -1,10 +1,8 @@
 # js-practice
 
-## **👩‍💻 🧑‍💻 Assignment Tasks**
+# **👩‍💻 🧑‍💻 Assignment Tasks**
 
-[![day-04]](TapaScript/js-practice/README.md 'Video')
-
-# Tasks
+[![day-04]](https://youtu.be/Fn_DhBu3VyU 'Video')
 
 Please complete the following tasks and post them on the tapaScript Discord under "40 Days of JavaScript".
 
