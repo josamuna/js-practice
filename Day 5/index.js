@@ -39,7 +39,7 @@ for (let i = 1; i <= maxRange; i++) {
   }
 }
 
-console.log('The summaion of all numbers between 1 to 500 is : ', sumValues);
+console.log('The summation of all numbers between 1 to 500 is : ', sumValues);
 
 // 4. Skipping Multiples of 3
 maxRange = 20;
@@ -55,8 +55,10 @@ for (let i = 1; i <= maxRange; i++) {
 // 5. Reverse Digits of a Number
 const inputValue = 6789;
 let newImput = '';
-for (let i = inputValue.toString().length; i >= 0; i--) {
-  newImput += inputValue.toString().charAt(i); // Concat value
+let counter = inputValue.toString().length;
+while (counter >= 0) {
+  newImput += inputValue.toString().charAt(counter); // Concat value
+  counter--;
 }
 console.log('Input ' + inputValue + ' becomes ' + newImput);
 

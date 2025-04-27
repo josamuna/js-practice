@@ -16,7 +16,7 @@ A journey to practice JavaScript concepts, ranging from beginer to advanced.
 - [x] Day 03: Master Operators and Expressions - [Video](https://youtu.be/vI95K-_JLOw)
 - [x] Day 04: Mastering Control Flow with Quizzes - [Video](https://youtu.be/Fn_DhBu3VyU)
 - [x] Day 05: Mastering Loops and Iterations with Quizzes - [Video](https://youtu.be/MDR43-2GvtA)
-- [ ] Day 06: Mastering Functions and its Use Cases with Quizzes - [Video](https://youtu.be/6UJ9SyHvkJY)
+- [x] Day 06: Mastering Functions and its Use Cases with Quizzes - [Video](https://youtu.be/6UJ9SyHvkJY)
 - [ ] Day 07: Building Beginner-Friendly JavaScript Projects - [Video](https://youtu.be/fydbEttef04)
 
 ### Module 2
