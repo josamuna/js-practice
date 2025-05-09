@@ -1,6 +1,6 @@
 # js-practice
 
-A journey to practice JavaScript concepts, ranging from beginer to advanced.
+A journey to practice JavaScript concepts, ranking from beginer to advanced.
 
 ## Contents materials
 
@@ -22,7 +22,7 @@ A journey to practice JavaScript concepts, ranging from beginer to advanced.
 ### Module 2
 
 - [x] Day 08: Mastering JavaScript Execution Context Visually - [Video](https://youtu.be/ylx5F7hbzVQ)
-- [ ] Day 09: Mastering Temporal Dead Zone and Hoisting - [Video](https://youtu.be/OqMxh1QdYEg)
+- [x] Day 09: Mastering Temporal Dead Zone and Hoisting - [Video](https://youtu.be/OqMxh1QdYEg)
 - [ ] Day 10: Mastering Scope and Scope Chain - [Video](https://youtu.be/14H2TsrjcLo)
 - [ ] Day 11: Learn Closures With Real-World Examples - [Video](https://youtu.be/lA7CGz3iHyI)
 - [ ] Day 12: Mastering JavaScript Objects Real-World Examples - [Video](https://youtu.be/c5vEfYj5yZM)
