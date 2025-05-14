@@ -22,8 +22,8 @@ A journey to practice JavaScript concepts, ranking from beginer to advanced.
 ### Module 2
 
 - [x] Day 08: Mastering JavaScript Execution Context Visually - [Video](https://youtu.be/ylx5F7hbzVQ)
-- [x] Day 09: Mastering Temporal Dead Zone and Hoisting - [Video](https://youtu.be/OqMxh1QdYEg)
-- [ ] Day 10: Mastering Scope and Scope Chain - [Video](https://youtu.be/14H2TsrjcLo)
+- [x] Day 09: Mastering Temporal Dead Zone (TDZ) and Hoisting - [Video](https://youtu.be/OqMxh1QdYEg)
+- [x] Day 10: Mastering Scope and Scope Chain - [Video](https://youtu.be/14H2TsrjcLo)
 - [ ] Day 11: Learn Closures With Real-World Examples - [Video](https://youtu.be/lA7CGz3iHyI)
 - [ ] Day 12: Mastering JavaScript Objects Real-World Examples - [Video](https://youtu.be/c5vEfYj5yZM)
 - [ ] Day 13: IS "this" Weired? Let's Break it down - [Video](https://youtu.be/t8QXF85YovE)
@@ -38,3 +38,10 @@ A journey to practice JavaScript concepts, ranking from beginer to advanced.
 - [ ] Day 18: DOM Manipulations and Project - [Video](https://www.youtube.com/watch?v=BoYgn_Mf0hA)
 - [ ] Day 19: Master JavaScript Events Like a PRO - [Video](https://youtu.be/ybgI5vVE668)
 - [ ] Day 20: Advanced DOM Tips and Tricks - [Video](https://youtu.be/aNhPav1DgTY)
+- [ ] Day 21: Build Quiz App Using JavaScript DOM APIs - [Video](https://youtu.be/hTDeyBq5EdM)
+
+### Module 4
+
+- [ ] Day 22: Asynchronous JavaScript - Callback - [Video](https://youtu.be/EtoHtZ8mdWA)
+- [ ] Day 23: JavaScript Promises: Zero to Hero - [Video](https://youtu.be/R52MdtIW3rs)
+- [ ] Day 24: Master JavaScript async/await & Simplify Promises Like a PRO - [Video](https://youtu.be/WQdCffdPPKI)
