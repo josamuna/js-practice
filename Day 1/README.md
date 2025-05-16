@@ -1,5 +1,16 @@
 # js-practice
 
+## **🎯 Goal of This Lesson**
+
+- Welcome to the "40 Days of JavaScript" series!
+- How to follow the progress tracker?
+- What is JavaScript, and why should you learn it?
+- Setting up your development environment (VS Code, browser, and Node.js).
+- Writing and running your first JavaScript code.
+- Loading JavaScript in different ways (`async`, `defer`).
+- Quick roadmap of what’s coming in this series.
+- Task and How to Submit
+
 ## **👩‍💻 🧑‍💻 Assignment Tasks**
 
 [![day-01]](https://youtu.be/t8QXF85YovE 'Video')

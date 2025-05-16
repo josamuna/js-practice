@@ -1,5 +1,13 @@
 # js-practice
 
+## **🎯 Goal of This Lesson**
+
+- What is Variable?
+- How to visualize variables?
+- How Variables get stored?
+- JavaScript Data Types
+- How JavaScript sees code?
+
 ## **👩‍💻 🧑‍💻 Assignment Tasks**
 
 [![day-02]](https://youtu.be/tVqy4Tw0i64 'Video')

@@ -1,5 +1,25 @@
 # js-practice
 
+## **🎯 Goal of This Lesson**
+
+- ✅ What Will We Learn
+- ✅ What is Function
+- ✅ Define a Function
+- ✅ Invoking a Function
+- ✅ Function as Expression
+- ✅ Parameter and Argument
+- ✅ Default Parameters
+- ✅ Rest parameter
+- ✅ Nested Functions
+- ✅ Callback Function
+- ✅ Pure Function
+- ✅ Higher Order Function
+- ✅ Arrow Function
+- ✅ IIFE
+- ✅ Call Stack
+- ✅ Recursion
+- ✅ Task and Wrap Up
+
 # **👩‍💻 🧑‍💻 Assignment Tasks**
 
 [![day-06]](https://youtu.be/6UJ9SyHvkJY 'Video')

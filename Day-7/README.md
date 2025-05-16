@@ -1,5 +1,10 @@
 # js-practice
 
+## **🎯 Goal of This Lesson**
+
+- ✅ Build the Project
+- ✅ Give an Assignment Project to Build
+
 # **👩‍💻 🧑‍💻 Assignment Tasks**
 
 [![day-07]](https://youtu.be/fydbEttef04 'Video')

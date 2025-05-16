@@ -1,5 +1,16 @@
 # js-practice
 
+## **🎯 Goal of This Lesson**
+
+- ✅ Intro
+- ✅ Misconception About Hoisting
+- ✅ Variable Hoisting
+- ✅ Hoisting and let and const
+- ✅ Temporal Dead Zone(TDZ)
+- ✅ Functional Hoisting
+- ✅ Hoisting and Function As an Expression
+- ✅ Task and What’s Next?
+
 # **👩‍💻 🧑‍💻 Assignment Tasks**
 
 [![day-10]](https://youtu.be/14H2TsrjcLo 'Video')

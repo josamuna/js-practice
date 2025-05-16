@@ -15,6 +15,14 @@ p {
   line-height: 2;
 }
 
+.btn1 {
+  border-radius: 8px;
+  border-color: moccasin;
+  padding: 5px;
+  color: rgb(94, 93, 2);
+  font-size: 18px;
+}
+
 .roboto {
   font-family: 'Roboto', sans-serif;
   font-optical-sizing: auto;
