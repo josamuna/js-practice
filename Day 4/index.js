@@ -1,4 +1,4 @@
-console.log('Day 4 Task');
+console.log('Day 4 Task.');
 
 // 1. Switch - Case
 // This code will print It's a normal day. because JavaScript is case sensitive
@@ -65,53 +65,57 @@ switch (operator) {
 const age = 65;
 if (age < 18) {
   // Children
-  console.log('You have to pay $3');
+  console.log('You have to pay $3.');
 } else if (age >= 18 && age <= 60) {
   // Adults
-  console.log('You have to pay $10');
+  console.log('You have to pay $10.');
 } else if (age > 60) {
   // Senior
-  console.log('You have to pay $8');
+  console.log('You have to pay $8.');
 }
 
 // 5. Horoscope Sign Checker
 const monthOfBirth = 'February';
 switch (monthOfBirth) {
   case 'January':
-    console.log('Your Horoscope Sign is Aquarius');
+    console.log('Your Horoscope Sign is Aquarius.');
     break;
   case 'February':
-    console.log('Your Horoscope Sign is Pisces');
+    console.log('Your Horoscope Sign is Pisces.');
     break;
   case 'March':
-    console.log('Your Horoscope Sign is Aries');
+    console.log('Your Horoscope Sign is Aries.');
     break;
   case 'April':
-    console.log('Your Horoscope Sign is Taurus');
+    console.log('Your Horoscope Sign is Taurus.');
     break;
   case 'May':
-    console.log('Your Horoscope Sign is Gemini');
+    console.log('Your Horoscope Sign is Gemini.');
     break;
   case 'June':
-    console.log('Your Horoscope Sign is Cancer');
+    console.log('Your Horoscope Sign is Cancer.');
     break;
   case 'July':
-    console.log('Your Horoscope Sign is Leo');
+    console.log('Your Horoscope Sign is Leo.');
     break;
   case 'August':
-    console.log('Your Horoscope Sign is Virgo');
+    console.log('Your Horoscope Sign is Virgo.');
     break;
   case 'Semptember':
-    console.log('Your Horoscope Sign is Libra');
+    console.log('Your Horoscope Sign is Libra.');
     break;
   case 'October':
-    console.log('Your Horoscope Sign is Scorpio');
+    console.log('Your Horoscope Sign is Scorpio.');
     break;
   case 'November':
-    console.log('Your Horoscope Sign is Sagittarius');
+    console.log('Your Horoscope Sign is Sagittarius.');
     break;
   case 'December':
-    console.log('Your Horoscope Sign is Capricorn');
+    console.log('Your Horoscope Sign is Capricorn.');
+    break;
+  default:
+    console.log('Please type a valid month, January to December.');
+
     break;
 }
 

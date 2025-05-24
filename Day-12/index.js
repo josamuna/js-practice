@@ -1,4 +1,4 @@
-console.log('Day 11 Task of 40 days of JavaScript.');
+console.log('Day 12 Task of 40 days of JavaScript.');
 
 // 1. What will be the output and why?
 const user = { name: 'Alex', age: undefined };
@@ -166,7 +166,7 @@ function checkAvailability(bookTitle) {
   const bookSize = booksObj.length;
   let found = false;
   let locationFoundAtArray = 0;
-  const formattedTitle = bookTitle?.toLowerCase(); // The ? operator avoid error when passing undefined
+  const formattedTitle = bookTitle?.toLowerCase(); // The ?. operator avoid error when passing undefined
   for (let objCount = 0; objCount < bookSize; objCount++) {
     if (booksObj[objCount].title.toLowerCase() === formattedTitle) {
       found = true;
@@ -197,7 +197,7 @@ checkAvailability(undefined);
 
 function restockBook(bookTitle, quantity) {
   const bookSize = booksObj.length;
-  const formattedTitle = bookTitle?.toLowerCase(); // Handle undefined in the proper way with ? operator.
+  const formattedTitle = bookTitle?.toLowerCase(); // Handle undefined in the proper way with ?. operator.
   let found = false;
   let locationFoundAtArray = 0;
   for (let objCount = 0; objCount < bookSize; objCount++) {
@@ -255,7 +255,7 @@ const person = { name: 'John' };
 const newPerson = person;
 newPerson.name = 'Doe';
 /*
-    Doe, because the two Ojbect (person and newPerson) are pointing to the same location or same reference 
+    Doe, because the two Object (person and newPerson) are pointing to the same location or same reference 
     and they are same.
     console.log(person === newPerson); return true.
 */
@@ -277,7 +277,7 @@ const obj1 = {
 
 const obj2 = Object.assign({}, obj1); // obj1 and obj2 have the same values even if not the same reference.
 obj2.a = 12; // Does not impact obj1.a.
-obj2.b.c = 50; // Then impact the nested object too obj1.b.c = 50
+obj2.b.c = 50; // Then impact the nested object too, obj1.b.c = 50
 console.log('obj1.a = ', obj1.a, 'obj1.b.c = ', obj1.b.c);
 console.log('obj2.a = ', obj2.a, 'obj2.b.c = ', obj2.b.c);
 
