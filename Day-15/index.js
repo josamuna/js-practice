@@ -687,7 +687,7 @@ const fruitGroupByFirstLetter = Object.groupBy(
 );
 console.log('Fruits grouped by the first letter : ', fruitGroupByFirstLetter);
 
-// **T-057**: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
+// **T-056**: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
 const arr5 = [3, 7, 3, 2, 3, 8, 7, 7];
 let objNum = {};
 arr5.forEach((num) => {
@@ -707,7 +707,7 @@ console.log('============>', objNum);
 
 // console.log('Most repeated number is : ', );
 
-// **T-058**: Find the median of [5, 2, 9, 1, 3, 6, 8].
+// **T-057**: Find the median of [5, 2, 9, 1, 3, 6, 8].
 const arr6 = [5, 2, 9, 1, 3, 6, 8];
 // Sort ASC
 const sortedArr = arr6.sort((a, b) => {
@@ -716,7 +716,7 @@ const sortedArr = arr6.sort((a, b) => {
 const median = arr6[Math.floor(arr6.length / 2)];
 console.log('The median value of the array ', arr6, ' is : ', median);
 
-// **T-059**: Convert this array [['a', 1], ['b', 2], ['c', 3]], into { a: 1, b: 2, c: 3 } using array method(s).
+// **T-058**: Convert this array [['a', 1], ['b', 2], ['c', 3]], into { a: 1, b: 2, c: 3 } using array method(s).
 const arr7 = [
   ['a', 1],
   ['b', 2],
@@ -728,7 +728,7 @@ for (let value of arr7.values()) {
 }
 console.log('Object from the array values is : ', objArray);
 
-// **T-060**: Flatten and convert all letters to uppercase in one step using flatMap(). Here is input array: [['a', 'b'], ['c', 'd']].
+// **T-059**: Flatten and convert all letters to uppercase in one step using flatMap(). Here is input array: [['a', 'b'], ['c', 'd']].
 const arr8 = [
   ['a', 'b'],
   ['c', 'd'],
@@ -746,7 +746,7 @@ console.log(
   arrFlattenAndUppercased
 );
 
-// **T-061**: Count the occurrences of each fruit in this array: ['apple', 'banana', 'apple', 'mango', 'banana', 'banana']
+// **T-060**: Count the occurrences of each fruit in this array: ['apple', 'banana', 'apple', 'mango', 'banana', 'banana']
 const myFavoriteFruit = [
   'apple',
   'banana',
@@ -762,12 +762,12 @@ for (const key in fruitByName) {
   console.log(key, ' has ', fruitByName[key].length, ' occurrences.');
 }
 
-// **T-062**: Extract extract [‘b’, ‘c’, ‘d’] using slice() from this array: ['a', 'b', 'c', 'd', 'e']
+// **T-061**: Extract extract [‘b’, ‘c’, ‘d’] using slice() from this array: ['a', 'b', 'c', 'd', 'e']
 const arrayLetters = ['a', 'b', 'c', 'd', 'e'];
 const newArrayLetters = arrayLetters.slice(1, 4);
 console.log('Extracted array with slice() is : ', newArrayLetters);
 
-// **T-063**: Sort the array [9, 3, 1, 6, 8] in ascending order using toSorted()
+// **T-062**: Sort the array [9, 3, 1, 6, 8] in ascending order using toSorted()
 const arrNumbers = [9, 3, 1, 6, 8];
 const sortedArrNumbers = arrNumbers.toSorted((a, b) => {
   return a === b ? 0 : a > b ? 1 : -1;
@@ -776,7 +776,7 @@ console.log('Array before sorting : ', arrNumbers);
 console.log('Array sorted Ascending : ', sortedArrNumbers);
 console.log('Array after sorting : ', arrNumbers); // Same array, not mutate
 
-// **T-064**: Reverse [1, 2, 3, 4, 5] using toReversed() and compare it with reverse()
+// **T-063**: Reverse [1, 2, 3, 4, 5] using toReversed() and compare it with reverse()
 const numbersValues = [1, 2, 3, 4, 5];
 console.log('Array before toReversed() : ', numbersValues);
 const arrWithToReversed = numbersValues.toReversed();
@@ -788,7 +788,7 @@ const arrWithReversed = numbersValues.reverse();
 console.log('Array with reverse() applied : ', arrWithReversed);
 console.log('Array after reverse() : ', numbersValues); // Not same array because it has mutated
 
-// **T-065**: Group the follwing array elements based on age(Adult vs Non-Adult):
+// **T-064**: Group the follwing array elements based on age(Adult vs Non-Adult):
 
 const users = [
   { name: 'Alice', age: 55 },
@@ -805,7 +805,7 @@ console.log(
   usersGroupedByAge
 );
 
-// **T-066**: Find the longest word in this sentence using Array and Array methods: "40 Days of JavaScript by tapaScript is a powerful initiative".
+// **T-065**: Find the longest word in this sentence using Array and Array methods: "40 Days of JavaScript by tapaScript is a powerful initiative".
 const sentence = '40 Days of JavaScript by tapaScript is a powerful initiative';
 // Create an array by new space found
 const arrayFromSentence = sentence.split(' ');
@@ -826,7 +826,7 @@ console.log(
     : `The longest word is ${theLongestWord}`
 );
 
-// **T-067**: Find common elements between two arrays, [1, 2, 3, 4], [3, 4, 5, 6]
+// **T-066**: Find common elements between two arrays, [1, 2, 3, 4], [3, 4, 5, 6]
 const num1 = [1, 2, 3, 4];
 const num2 = [3, 4, 5, 6];
 

@@ -47,7 +47,7 @@ processPayment(20); // Pass
 function UserError(message) {
   this.name = 'UserError';
   this.message = message;
-  this.stack = new Error('').stack;
+  this.stack = new Error().stack;
 }
 
 UserError.prototype = Object.create(Error.prototype);
@@ -56,7 +56,7 @@ UserError.prototype = Object.create(Error.prototype);
 function PayementError(message) {
   this.name = 'PayementError';
   this.message = message;
-  this.stack = new Error('').stack;
+  this.stack = new Error().stack;
 }
 
 PayementError.prototype = Object.create(Error.prototype);
@@ -65,7 +65,7 @@ PayementError.prototype = Object.create(Error.prototype);
 function ServerError(message) {
   this.name = 'ServerError';
   this.message = message;
-  this.stack = new Error('').stack;
+  this.stack = new Error().stack;
 }
 
 ServerError.prototype = Object.create(Error.prototype);
@@ -74,7 +74,7 @@ ServerError.prototype = Object.create(Error.prototype);
 function EmailError(message) {
   this.name = 'EmailError';
   this.message = message;
-  this.stack = new Error('').stack;
+  this.stack = new Error().stack;
 }
 
 EmailError.prototype = Object.create(Error.prototype);
@@ -233,7 +233,7 @@ try {
 function ValidationError(message) {
   this.name = 'ValidationError';
   this.message = message;
-  this.stack = new Error('').stack;
+  this.stack = new Error().stack;
 }
 
 ValidationError.prototype = Object.create(Error.prototype);

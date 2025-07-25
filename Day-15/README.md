@@ -225,7 +225,7 @@ console.log(salad);
 
 ## 5. Clone or Copy array to a new one
 
-> `slice` copy an array to another. The `slice` return a new copy of the array.
+> `slice` copy an array to another. The `slice` return a new copy of the array. It takes two arguments. The `first tells the start index` to start the copy and `the second is the length till to go` (The copy go to the end of arraym when it is not provided).
 
 ```js
 console.log('Day 15 Task of 40 days of JavaScript.');
@@ -296,14 +296,14 @@ const vege = fruits[3];
 const carrot1 = vege[2];
 console.log(carrot1);
 
-const carrot2 = fruits[3][2]; // Proper way to get element inside nested array in this scenario
+const carrot2 = fruits[3][2]; // Proper way to get element inside a nested array in this scenario
 let [, , , , , [, , carrot3]] = ['🍊', '🍏', '🍋', ['🍅', '🍄', '🥕']]; // More complicated with array destructuring
 console.log(carrot3);
 ```
 
 ## 7. Rest parameter
 
-> _`Rest parameter`_ or **...** on the **left side of the assignment operator** in destructuring.
+> _`Rest parameter`_ or **...** is used on the **left side of the assignment operator** in destructuring.
 
 ```js
 const [tomato, mushroom, ...rest] = ['🍅', '🍄', '🥦', '🍀', '🥒', '🥕', '🌶️']; // ['🥦', '🍀', '🥒', '🥕', '🌶️']
@@ -312,7 +312,7 @@ console.log(rest);
 
 ## 8. Spread operator
 
-> _`Spread operator`_ or **...** on the **right side of the assignment operator** in destructuring. This allows also to clone or create array copy.
+> _`Spread operator`_ or **...** is used on the **right side of the assignment operator** in destructuring. This allows also to clone or create array copy.
 
 ### 8.1. Copy or clone array with spead operator
 
@@ -364,13 +364,13 @@ arr1.lenght = 9; // Fill the rest of values inside the array with empty value.
 console.log(arr1);
 ```
 
-## 10. JavasCript array Methods
+## 10. JavaScript array Methods
 
 > Useful method when dealing with arrays in JS.
 
 ### 10.1. concat
 
-> _`concat`_ merges one or more arrays and return the merged array. There is no limit of the number of arrays to merge together.
+> _`concat`_ merges one or more arrays and returns the merged array. There is no limit of the number of arrays to merge together.
 
 ```js
 const first = [1, 2, 3];
@@ -387,7 +387,7 @@ console.log(completeMerge);
 
 ### 10.2. join
 
-> _`join`_ joins elements od an array togeher using a separtor (comma as the default), and return a string.
+> _`join`_ joins elements of an array togeher using a separtor (_`comma`_ as the default), and returns a string.
 
 ```js
 const emotions = ['😅', '🤭', '😇', '😔', '😕', '😣', '🤩', '🤗', '😨'];
@@ -401,7 +401,7 @@ console.log('An empty array produce an empty string : ', emptyString);
 
 ### 10.3. fill
 
-> _`fill`_ fills an array with static values or select a few elements of an array and change them with anothers values. This method takes two arguments, the start index (zero based) and the length till to go.
+> _`fill`_ fills an array with static values or select a few elements of an array and change them with anothers values. This method takes two arguments, the start index (**zero based**) and the length till to go.
 
 ```js
 const colors = ['red', 'blue', 'green'];
@@ -413,7 +413,7 @@ console.log(colors);
 
 ### 10.4. includes
 
-> _`includes`_ determine the presence of an element in an array. If yes, it returns **true** or **false** otherwise.
+> _`includes`_ determines the presence of an element in an array. If yes, it returns **true** or **false** otherwise.
 
 ```js
 const names = ['tom', 'alex', 'bob', 'john'];
@@ -423,7 +423,7 @@ console.log(names.includes('bob')); // true.
 
 ### 10.5. indexOf
 
-> _`indexOf`_ is a most used method of an array, and it is used when we need to know the **index position of an array element**. It's returns always the first position index of the element in the array when found, otherwise **-1**.
+> _`indexOf`_ is a most used method of an array, and it is used when we need to know the **index position of an array element**. It's returns always **the first position index of the element** in the array when found, otherwise **-1**.
 
 ```js
 const names = ['tom', 'alex', 'bob', 'john'];
@@ -435,7 +435,7 @@ console.log(bobIndex); // 2
 
 ### 10.6. lastIndexOf
 
-> _`lastIndexOf`_ tells index of the last occurence of an element in the array, otherwirse return **-1** if not found.
+> _`lastIndexOf`_ tells index of **the last occurence of an element** in the array, otherwirse return **-1** if not found.
 
 ```js
 const firstTomIndex = names.indexOf('tom');
@@ -507,7 +507,7 @@ console.log(
 ### 10.9. splice
 
 > _`splice`_ **delete**, **add** or **modify** an element in a array. `It's always returns the array containing the deleted items`.
-> takes three parameters :
+> It takes three parameters :
 
 ```js
 /*
@@ -555,7 +555,7 @@ console.log(junkFoodILove.at(10)); // undefined
 
 ### 10.11. copyWithin
 
-> _`copyWithin`_ is not so much used and copy element from one position to another in the same array.
+> _`copyWithin`_ is not so much used and copy elements from one position to another in the same array.
 
 ```js
 /*
@@ -575,7 +575,7 @@ console.log(array.copyWithin(0, 4)); // From zero index (1), copy starting from 
 
 ### 10.12. flat
 
-> _`flat`_ flat an array by default on the first level. To flat the array at any deep, the argument **infinity** should be passed to the flat method.
+> _`flat`_ flat an array by default on the first level. To flat the array at any deep, the argument **Infinity** should be passed to the flat method.
 
 ```js
 const arr1 = [0, 1, 2, [3, 4]];
@@ -589,7 +589,7 @@ console.log('Flat at any level : ', arr2.flat(Infinity)); // Flat at any level [
 
 ### 10.13. groupBy
 
-> _`groupBy`_ is a recent functionality that group using a criteria. It is a static method of Object. It group using a key.
+> _`groupBy`_ is a recent functionality that group using a criteria. It is a static method of Object. It group using a **key**.
 
 ```js
 const employees = [
@@ -672,8 +672,9 @@ console.log(newArray2); // [1, 2, 3, 8, 5]
 
 ## 11. Static Array methods in JavaScript : Array-like
 
-> _`Array like`_ is an object and has few similarity with array, but is not an array. Has a property `length` and elements are `indexed`, but can not be manipulated as array.
-> The below code shows that the `array_like` variable behave has an array, but it is not because the `Array.isArray() return false`.
+> _`Array-like`_ is an object and has few similarity with array, but is not an array. Has a property `length` and elements are `indexed`, but can not be manipulated as an array.
+
+> The below code shows that the `array_like` variable behave as an array, but it is not because the `Array.isArray() return false`.
 
 ```js
 const array_like = { 0: 'I', 1: 'am', 2: 'array-like', length: 3 };
@@ -685,7 +686,8 @@ console.log('Is array_like is an object? ', array_like instanceof Object); // tr
 ```
 
 > Object that has `elements indexed` and `length property` are _`Array-like`_.
-> To deal with array-likem we have to convert it as an array and work on it. This can be done with :
+
+> To deal with array-like, we have to convert it as an array and work on it. This can be done with :
 
 1. `Spread operator`.
 2. `Array.from()` method.
@@ -718,7 +720,7 @@ console.log('ConvertedArray : ', collectionArr);
 
 ### 11.3. Convert to array with Array.fromAsync() method
 
-> Instead an array, _`Array.fromAsync()`_ method create a new array as a `promise`, and works as `async iterable object`. It should be used to iterate through `asynchronous object`.
+> Instead of an array, _`Array.fromAsync()`_ method creates a new array as a `promise`, and works as `async iterable object`. It should be used to iterate through `asynchronous object`.
 
 ```js
 const collectionPromise = Array.fromAsync(document.getElementsByTagName('li'));
@@ -828,7 +830,7 @@ let customers = [
   filter takes a callback function which is a test function with these possible parameters. Only the first one is mandatory. :
   element : Actuel element from the array on which the test function is applied to.
   index : Current element index from the array.
-  array : the source array itself (where the filtering is applied to). Can be useful for some raisons.
+  array : The source array itself (where the filtering is applied to). Can be useful for some raisons.
 */
 const newArray = arr.filter((element, index, array) => {
   // ...........
@@ -945,7 +947,7 @@ console.log(power2);
 
 ### 12.5. some
 
-> _`some`_ checks if a condition is satisfied for at least one element in the array. In this casem its returns `true`, or `false` if any element satisfy the criteria.
+> _`some`_ checks if a condition is satisfied for at least one element in the array. In this case, its returns `true`, or `false` if no element satisfy the criteria.
 
 ```js
 /*
@@ -1042,7 +1044,7 @@ console.log(
 
 ### 12.10. findLast
 
-> _`findLast`_ find the last occurence of an array element from **right the left side**. If more than one customer are married, this method will find the last one only. This method returns the element value and not a boolean. When the criteria does not matched, findLast return `undefined`.
+> _`findLast`_ find the **last occurence** of an array element from **right the left side**. If more than one customer are married, this method will find the last one only. This method returns the element value and not a boolean. When the criteria does not matched, findLast returns `undefined`.
 
 ```js
 // Find the last married customer position
@@ -1087,7 +1089,7 @@ console.log(
 // ============================
 
 // Get the total amount spent by Married customers
-// Instead of doing the calculation separately, we can chain them => map() => filter() => reduce()
+// Instead of doing the calculation separately, we can chain them => filter() => map() => reduce() commonly.
 const totalSpentByMarriedCustomer = customers
   .filter((customer) => {
     return customer.married;
@@ -1107,7 +1109,7 @@ console.log(
 
 ### 12.12. forEach
 
-> _`forEach`_ iterating on each array element and execute a particular function passed as the callback function. `forEach` does not return any value and, needs extra work to deal with data instead of **map** (Return an tansformed array), **reduce** (Return a single value) and **filter** (Return an array that match a criteria).
+> _`forEach`_ iterating on each array element and executes a particular function passed as the callback function. `forEach` does not return any value and, needs extra work to deal with data instead of **map** (Return an tansformed array), **reduce** (Return a single value) and **filter** (Return an array that match a criteria).
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -1122,7 +1124,7 @@ console.log('Sum using forEach : ', sum);
 
 ### 12.13. entries
 
-> _`entries`_ return an _`array iterator`_.
+> _`entries`_ return an _`array iterator`_. It is the `Array.prototype.entries()`.
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -1138,7 +1140,7 @@ for (let [index, element] of arrItr1) {
 
 ### 12.14. values
 
-> The difference between _`values`_ and _`entries`_ is that **entries** returns `index` and `values` but, **values** returns only `values`. Both methods are returning _`Array Iterator`_.
+> The difference between _`values`_ and _`entries`_ is that **entries** returns `index` and `values` but, **values** returns only `values`. Both methods are returning _`Array Iterator`_. It is the `Array.prototype.values()`.
 
 ```js
 const arrItr2 = arr.values();
@@ -2025,13 +2027,13 @@ console.log(
   console.log('Fruits grouped by the first letter : ', fruitGroupByFirstLetter);
   ```
 
-- [ ] **T-057**: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
+- [ ] **T-056**: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
 
 ```js
 
 ```
 
-- [x] **T-058**: Find the median of [5, 2, 9, 1, 3, 6, 8].
+- [x] **T-057**: Find the median of [5, 2, 9, 1, 3, 6, 8].
 
   ```js
   const arr6 = [5, 2, 9, 1, 3, 6, 8];
@@ -2043,7 +2045,7 @@ console.log(
   console.log('The median value of the array ', arr6, ' is : ', median);
   ```
 
-- [x] **T-059**: Convert this array [['a', 1], ['b', 2], ['c', 3]], into { a: 1, b: 2, c: 3 } using array method(s).
+- [x] **T-058**: Convert this array [['a', 1], ['b', 2], ['c', 3]], into { a: 1, b: 2, c: 3 } using array method(s).
 
   ```js
   const arr7 = [
@@ -2058,7 +2060,7 @@ console.log(
   console.log('Object from the array values is : ', objArray);
   ```
 
-- [x] **T-060**: Flatten and convert all letters to uppercase in one step using flatMap(). Here is input array: [['a', 'b'], ['c', 'd']].
+- [x] **T-059**: Flatten and convert all letters to uppercase in one step using flatMap(). Here is input array: [['a', 'b'], ['c', 'd']].
 
   ```js
   const arr8 = [
@@ -2079,7 +2081,7 @@ console.log(
   );
   ```
 
-- [x] **T-061**: Count the occurrences of each fruit in this array: ['apple', 'banana', 'apple', 'mango', 'banana', 'banana']
+- [x] **T-060**: Count the occurrences of each fruit in this array: ['apple', 'banana', 'apple', 'mango', 'banana', 'banana']
 
   ```js
   const myFavoriteFruit = [
@@ -2098,7 +2100,7 @@ console.log(
   }
   ```
 
-- [x] **T-062**: Extract extract [‘b’, ‘c’, ‘d’] using slice() from this array: ['a', 'b', 'c', 'd', 'e']
+- [x] **T-061**: Extract extract [‘b’, ‘c’, ‘d’] using slice() from this array: ['a', 'b', 'c', 'd', 'e']
 
   ```js
   const arrayLetters = ['a', 'b', 'c', 'd', 'e'];
@@ -2106,7 +2108,7 @@ console.log(
   console.log('Extracted array with slice() is : ', newArrayLetters);
   ```
 
-- [x] **T-063**: Sort the array [9, 3, 1, 6, 8] in ascending order using toSorted()
+- [x] **T-062**: Sort the array [9, 3, 1, 6, 8] in ascending order using toSorted()
 
   ```js
   const arrNumbers = [9, 3, 1, 6, 8];
@@ -2118,7 +2120,7 @@ console.log(
   console.log('Array after sorting : ', arrNumbers); // Same array, not mutate
   ```
 
-- [x] **T-064**: Reverse [1, 2, 3, 4, 5] using toReversed() and compare it with reverse()
+- [x] **T-063**: Reverse [1, 2, 3, 4, 5] using toReversed() and compare it with reverse()
 
   ```js
   const numbersValues = [1, 2, 3, 4, 5];
@@ -2133,7 +2135,7 @@ console.log(
   console.log('Array after reverse() : ', numbersValues); // Not same array because it has mutated
   ```
 
-- [x] **T-065**: Group the follwing array elements based on age(Adult vs Non-Adult):
+- [x] **T-064**: Group the follwing array elements based on age(Adult vs Non-Adult):
 
 ```js
 const users = [
@@ -2154,7 +2156,7 @@ console.log(
 );
 ```
 
-- [x] **T-066**: Find the longest word in this sentence using Array and Array methods: "40 Days of JavaScript by tapaScript is a powerful initiative".
+- [x] **T-065**: Find the longest word in this sentence using Array and Array methods: "40 Days of JavaScript by tapaScript is a powerful initiative".
 
   ```js
   const sentence =
@@ -2179,7 +2181,7 @@ console.log(
   );
   ```
 
-- [x] **T-067**: Find common elements between two arrays, [1, 2, 3, 4], [3, 4, 5, 6]
+- [x] **T-066**: Find common elements between two arrays, [1, 2, 3, 4], [3, 4, 5, 6]
 
   ```js
   const num1 = [1, 2, 3, 4];
