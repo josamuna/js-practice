@@ -33,34 +33,190 @@ Please complete the following tasks and post them on the tapaScript Discord unde
 Create a function celsiusToFahrenheit(celsius) that converts a temperature from Celsius to Fahrenheit.
 Formula: (Celsius \* 9/5) + 32 = Fahrenheit
 
+```js
+const celsiusTemp = 25.9;
+function celsiusToFahrenheit(celsius = 0) {
+  return (celsius * 9) / 5 + 32;
+}
+
+console.log(celsiusTemp + '°C == ', celsiusToFahrenheit(celsiusTemp) + ' °F');
+```
+
 ## 2. Create a Function to Find the Maximum of Two Numbers
 
 Write a function findMax(num1, num2) that returns the larger of the two numbers. It should work for negative numbers as well.
 
+```js
+function findMax(num1, num2) {
+  return num1 > num2
+    ? 'Between ' +
+        num1 +
+        ' and ' +
+        num2 +
+        ', ' +
+        num1 +
+        ' is the maximun number.'
+    : 'Between ' +
+        num1 +
+        ' and ' +
+        num2 +
+        ', ' +
+        num2 +
+        ' is the maximun number.';
+}
+
+console.log(findMax(4, -1));
+console.log(findMax(-10, -3));
+console.log(findMax(80, 100));
+```
+
 ## 3. Function to Check if a String is a Palindrome
 
 Create a function isPalindrome(str) that checks if a given string is a palindrome (reads the same forward and backward). You can not use any string function that we have not learned in the series so far.
+
+```js
+function isPalindrome(str = '') {
+  let newStr = '';
+  for (let i = 0, j = str.length - 1; i < str.length; i++, j--) {
+    if (str.charAt(i) === str.charAt(j)) {
+      newStr += str.charAt(i);
+    }
+  }
+  if (str == newStr) {
+    return true;
+  }
+  return false;
+}
+let word = 'noon';
+isPalindrome(word)
+  ? console.log(word + ' is a Palindrome.')
+  : console.log(word + ' is not a Palindrome.');
+word = 'king';
+isPalindrome(word)
+  ? console.log(word + ' is a Palindrome.')
+  : console.log(word + ' is not a Palindrome.');
+```
 
 ## 4. Write a Function to Find Factorial of a Number
 
 Create a function factorial(n) that returns the factorial of n.
 Example 5! = 5 _ 4 _ 3 _ 2 _ 1
 
+```js
+function factorial(n = 0) {
+  let factorial = 1;
+  if (n === 0) {
+    return 1;
+  } else if (n < 0) {
+    return;
+  }
+  for (let i = n; i > 0; i--) {
+    factorial *= i;
+  }
+  return factorial;
+}
+
+let number = 5;
+console.log(number, '! = ', factorial(number));
+number = -1;
+console.log(number, '! = ', factorial(number) ?? 'Does not exist.');
+number = 0;
+console.log(number, '! = ', factorial(number));
+```
+
 ## 5. Write a function to Count Vowels in a String
 
 Write a function countVowels(str) that counts the number of vowels (a, e, i, o, u) in a given string.
+
+```js
+word = 'Vowels'; // 2 vowels
+const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+function countVowels(str = '') {
+  let counter = 0;
+  for (let i = 0; i < str.length; i++) {
+    for (let j = 0; j < vowels.length; j++) {
+      if (str.charAt(i) === vowels[j]) {
+        counter++;
+        break;
+      }
+    }
+  }
+  return counter;
+}
+
+console.log('The word "' + word + '" has ', countVowels(word), ' Vowels.');
+word = 'The king of the city has borned'; // 8 vowels
+console.log('The word "' + word + '" has ', countVowels(word), ' Vowels.');
+```
 
 ## 6. Write a Function to Capitalize the First Letter of Each Word in a Sentence
 
 Write a function capitalizeWords(sentence) that takes a sentence and capitalizes the first letter of each word. You can use the toUpperCase() method of string to convert the lowercase to uppercase.
 
+```js
+function capitalizeWords(sentence = '') {
+  let newSentence = '';
+  // Capitalize the first letter and then add it to the new string sentence
+  const firstLetter = sentence.charAt(0).toUpperCase();
+  newSentence += firstLetter;
+  let iterationToSkip = 0;
+  for (let i = 0; i < sentence.length; i++) {
+    // a space is found and the next character exist (Not end of sentence),
+    // then add the next char after it is uppercased.
+    if (sentence.charAt(i) === ' ' && sentence.charAt(i + 1)) {
+      newSentence += sentence.charAt(i); // Add the space first.
+      newSentence += sentence.charAt(i + 1).toUpperCase(); // Add the next char after it is uppercased.
+      iterationToSkip = i + 1;
+    } else {
+      // Skip the uppercased letter
+      if (i === iterationToSkip) {
+        continue;
+      } else {
+        // Add the rest of sentence characters.
+        newSentence += sentence.charAt(i);
+      }
+    }
+  }
+  return newSentence;
+}
+
+word = 'the king of the city has borned.';
+console.log(
+  'From the string "' + word + '" the new one is :',
+  capitalizeWords(word)
+);
+
+word = 'once the job is done, then told me what is going one.';
+console.log(
+  'From the string "' + word + '" the new one is :',
+  capitalizeWords(word)
+);
+```
+
 ## 7. Use an IIFE to Print “Hello, JavaScript!”
 
 Write an IIFE that prints "Hello, JavaScript!" to the console. Here the Second word must be supplied using paramneter and argument.
 
+```js
+(function printMessage(message = '') {
+  console.log('Hello, ' + message);
+})('JavaScript');
+```
+
 ## 8. Create a Simple Callback Function
 
 Write a function greet(name, callback), where callback prints a message using the name parameter.
+
+```js
+function greet(name, callback) {
+  callback(name);
+}
+const nameUser = 'Josue';
+greet(nameUser, (name) => {
+  console.log('Hello, ' + name);
+});
+```
 
 ## 9. Create Call Stack Execution Diagram for this flow
 
@@ -70,6 +226,76 @@ function f2() {
   f1();
 }
 f2();
+
+/*
+The Call Stack diagram will be as follow:
+
+STEP 1 : Empty Call stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v
+ 
+STEP 2 : f2() go into the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f2      |
+    |  ---------  v    
+  
+STEP 3 : f1() is called, then f1() go into the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f1      |
+    |  ---------  |
+    |     f2      |
+    |  ---------  v     
+
+STEP 4 : f1() has nothing to execute, then f1() will go out the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f2      |
+    |  ---------  v 
+
+STEP 5 : Then f2() will resume and go out the stack. The stack remains empty.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v 
+
+*/
 ```
 
 ## 10. Create Call Stack Execution Diagram for this flow
@@ -83,6 +309,104 @@ function f3() {
 f2();
 f3();
 f1();
+
+/*
+The Call Stack diagram will be as follow:   
+
+STEP 1 : Empty Call Stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v
+
+STEP 2 : f2() go into the stack. Inside f2() there is nothing to do, the f2() will go out the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f2      |
+    |  ---------  v
+
+STEP 3 : f3() go into the stack. Inside f3(), f1() is called, then f1() go into the stack. 
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f1      |
+    |  ---------  |
+    |     f3      |
+    |  ---------  v
+
+STEP 4 : Inside f1(), there is nothing to do, then f1() will go out the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f3      |
+    |  ---------  v 
+    
+STEP 5 : f3() will resume and, then go out the stack, 
+because there no more instructions to execute after f1(), then f3() will go out of the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v 
+ 
+STEP 6 : f1() go into the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |      f1     |
+    |  ---------  v  
+    
+STEP 7 : Then because f1() has nothing to execute, f1() will go out the stackf. 
+Finally, stack will remains empty as we start on STEP 1.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v 
+
+*/
 ```
 
 ## Screenshot

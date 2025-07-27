@@ -2,7 +2,7 @@ console.log('Day 12 Task of 40 days of JavaScript.');
 
 // 1. What will be the output and why?
 const user = { name: 'Alex', age: undefined };
-console.log(user.age ?? 'Not provided'); // Not provided
+console.log(user.age ?? 'Not provided'); // Not provided, because age is undefined.
 
 // 2. What will happen if we try to modify a frozen object?
 // Nothing will be happen and any error will be raised.
@@ -30,11 +30,6 @@ const {
   },
 } = Person;
 
-// const {
-//   company: {
-//     location: { city },
-//   },
-// } = person;
 console.log(`Name = ${personName}, Compagny = ${compName} and City = ${city}`);
 
 // 4. Build a Student Management System
@@ -70,7 +65,7 @@ console.log(
   `Student ${stdName} has ${age} old, and has an average of ${average()}%.`
 );
 
-// 4. Book Store Inventory System
+// 5. Book Store Inventory System
 /* 
   - Store books in an object.
   - Add functionality to check availability and restock books.
@@ -251,14 +246,15 @@ console.log(Object.hasOwn(employee, 'hobby')); // false because the property not
 console.log(Object.hasOwn(employee, 'name')); // yes because the property exist in Object.
 
 // 8. What will be the output and why?
-const person = { name: 'John' };
-const newPerson = person;
-newPerson.name = 'Doe';
 /*
     Doe, because the two Object (person and newPerson) are pointing to the same location or same reference 
     and they are same.
     console.log(person === newPerson); return true.
 */
+
+const person = { name: 'John' };
+const newPerson = person;
+newPerson.name = 'Doe';
 console.log(person.name);
 
 // 9. What’s the best way to deeply copy a nested object? Expalin with examples

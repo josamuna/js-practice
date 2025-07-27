@@ -47,7 +47,7 @@ getResult(8, 5);
 
 - Create the GEC and FEC with CP and EP flow
 
-```
+```js
 GEC: Global Execution Phase
 FEC: Function Execution Context
 CP: Creation Phase

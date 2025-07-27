@@ -29,9 +29,9 @@ A journey to practice JavaScript concepts, ranking from beginer to advanced.
 - [x] Day 11: Learn Closures With Real-World Examples - [Video](https://youtu.be/lA7CGz3iHyI)
 - [x] Day 12: Mastering JavaScript Objects Real-World Examples - [Video](https://youtu.be/c5vEfYj5yZM)
 - [x] Day 13: IS "this" Weired? Let's Break it down - [Video](https://youtu.be/9mfb0j9PcHw)
-- [ ] LIVE 01: STOP Writing Bad JavaScript Code and Upgrade Your Skills Now! - [Video](https://www.youtube.com/watch?v=1XW_g3Ik3l8)
+- [x] LIVE 01: STOP Writing Bad JavaScript Code and Upgrade Your Skills Now! - [Video](https://www.youtube.com/watch?v=1XW_g3Ik3l8)
 - [x] Day 14: Error Handling in javaScript - [Video](https://youtu.be/XpMW-gxNYD8)
-- [ ] Day 15: JavaScript Array Master Course - Beginner to PRO - [Video](https://youtu.be/t05NguKFKo0)
+- [x] Day 15: JavaScript Array Master Course - Beginner to PRO - [Video](https://youtu.be/t05NguKFKo0)
 - [ ] Day 16: JavaScript Code Debugging 101 - [Video](https://youtu.be/VInAd-GJZec)
 
 ### Module 3 - DOM and Advanced Usages

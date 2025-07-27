@@ -156,15 +156,73 @@ function f2() {
 f2();
 
 /*
-f2() is called first, then f1() is called, that means f1() will go out the callstack first, 
-f2(). This follow the LIFO (Last In First Out) model.
+The Call Stack diagram will be as follow:
+
+STEP 1 : Empty Call stack.
 
 OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v
+ 
+STEP 2 : f2() go into the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f2      |
+    |  ---------  v    
+  
+STEP 3 : f1() is called, then f1() go into the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
     |  ---------  |
     |     f1      |
     |  ---------  |
     |     f2      |
-    |  ---------  v
+    |  ---------  v     
+
+STEP 4 : f1() has nothing to execute, then f1() will go out the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f2      |
+    |  ---------  v 
+
+STEP 5 : Then f2() will resume and go out the stack. The stack remains empty.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v 
+
 */
 
 // 10. Callstack execution diagram
@@ -178,18 +236,99 @@ f3();
 f1();
 
 /*
-f2() is called first, then f3() is called, which called f1() and finally f1() is called again,
- that means f1() will go out the callstack twice first, then f3() will go out, an finally f2() 
-will also go out the call stack.
+The Call Stack diagram will be as follow:   
+
+STEP 1 : Empty Call Stack.
 
 OUT ^             | IN
     |  ---------  |
-    |     f1      |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v
+
+STEP 2 : f2() go into the stack. Inside f2() there is nothing to do, the f2() will go out the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f2      |
+    |  ---------  v
+
+STEP 3 : f3() go into the stack. Inside f3(), f1() is called, then f1() go into the stack. 
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
     |  ---------  |
     |     f1      |
     |  ---------  |
     |     f3      |
-    |  ---------  |
-    |     f2      |
     |  ---------  v
+
+STEP 4 : Inside f1(), there is nothing to do, then f1() will go out the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |     f3      |
+    |  ---------  v 
+    
+STEP 5 : f3() will resume and, then go out the stack, 
+because there no more instructions to execute after f1(), then f3() will go out of the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v 
+ 
+STEP 6 : f1() go into the stack.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |      f1     |
+    |  ---------  v  
+    
+STEP 7 : Then because f1() has nothing to execute, f1() will go out the stackf. 
+Finally, stack will remains empty as we start on STEP 1.
+
+OUT ^             | IN
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  |
+    |             |
+    |  ---------  v 
+
 */

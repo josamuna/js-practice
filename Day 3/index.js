@@ -64,8 +64,9 @@ console.log(
 // 5. Electricity Bill Calculator
 const units = 10; // Electricity Unit consume per day
 const unitaryPrice = 150;
+const discountPercentage = 0.2;
 const monthlyPaiement = unitaryPrice * units * 30;
-const annualDiscount = monthlyPaiement * 12 * 0.2; // 20 Percent
+const annualDiscount = monthlyPaiement * 12 * discountPercentage; // 20 Percent
 const annualyPaiement = monthlyPaiement * 12 - annualDiscount;
 
 console.log(
@@ -78,15 +79,17 @@ console.log(
 // 6. Leap Year Checker
 // Leap year when the remainder of year with 100 and 400 is 0.
 let year = 2000;
+const value1 = 100;
+const value2 = 400;
 console.log(
-  year % 100 === 0 && year % 400 === 0
+  year % value1 === 0 && year % value2 === 0
     ? year + ' is a Leap year.'
     : year + ' is not a Leap year.'
 );
 
 year = 2025;
 console.log(
-  year % 100 === 0 && year % 400 === 0
+  year % value1 === 0 && year % value2 === 0
     ? year + ' is a Leap year.'
     : year + ' is not a Leap year.'
 );

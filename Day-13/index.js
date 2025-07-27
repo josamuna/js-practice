@@ -109,6 +109,7 @@ const user = {
 
 const userFunction = user.greet();
 userFunction();
+
 /* 
   5. Create a `Sports` constructor function that takes `name` and `number of players` as arguments and 
   assigns them using `this` keyword. Then, create two sports instances and log their details
@@ -142,15 +143,15 @@ const car2 = {
   model: 'X1',
 };
 
-// Bind with the call method
+// Bind car2 Object the call method
 car1.describe.call(car2);
 car2.describe;
 
-// Bind with the apply method
+// Bind car2 Object the apply method
 car1.describe.apply(car2);
 car2.describe;
 
-// Bind with the bind method
+// Bind car2 Object the bind method
 const bindCar2 = car1.describe.bind(car2);
 bindCar2();
 
@@ -166,6 +167,7 @@ the parent (block of code outside person) which result as undefined and becomes 
   C: "Charlie" and "" (empty string)
   D: undefined and "Charlie"
 */
+
 const person = {
   name: 'Charlie',
   sayHello: function () {

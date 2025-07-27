@@ -3,7 +3,7 @@ console.log('Day 9 Task');
 /*
     1. Explain Temporal Dead Zone by creating 3 variables in side a block. Post the code as your answer.
 
-    The Temporal Dead Zone (TDZ) is a block of code where variables can not be accessed until they are initialized
+    The Temporal Dead Zone (TDZ) is a block of code where variables can not be accessed until they are initialized.
     In this block, any access to a variable rise a ReferenceError.
 */
 
