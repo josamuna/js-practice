@@ -111,8 +111,8 @@ Array plays a great role in data structure. Array is represented as a pair of br
 
 ```js
 /*
-  Index representes the position of an element in the array and starts from 0
-  Index ends with length -1
+  Index representes the position of an element in the array and starts from 0.
+  Index ends with length -1.
 */
 const mixedArray = [
   100,
@@ -161,9 +161,9 @@ console.log(arrayTwo);
 
 ```js
 const salad = ['🍅', '🍄', '🥦', '🍀', '🥒', '🥕', '🌶️'];
-console.log(salad[0]); // Print tomato
-console.log(salad[4]); // Print Concumber
-console.log(salad[5]); // Print Carot
+console.log(salad[0]); // Print tomato.
+console.log(salad[4]); // Print Concumber.
+console.log(salad[5]); // Print Carot.
 ```
 
 Knowing the array index can be tricky, that why the loop help to go through array elements and access them.
@@ -245,11 +245,11 @@ console.log(
 
 ```js
 const salad = ['🍅', '🍄', '🥦', '🍀', '🥒', '🥕', '🌶️'];
-console.log(Array.isArray(salad)); // true
-console.log(Array.isArray('🍄')); // false
-console.log(Array.isArray([1, 2, 3])); // true
-console.log(Array.isArray([])); // true. Empty array is an array
-console.log(Array.isArray({ user: 'sam' })); // false. An object is not an array
+console.log(Array.isArray(salad)); // true.
+console.log(Array.isArray('🍄')); // false.
+console.log(Array.isArray([1, 2, 3])); // true.
+console.log(Array.isArray([])); // true. Empty array is an array.
+console.log(Array.isArray({ user: 'sam' })); // false. An object is not an array.
 ```
 
 ## 7. Array destructuring
@@ -260,12 +260,12 @@ console.log(Array.isArray({ user: 'sam' })); // false. An object is not an array
 
 ```js
 const salad = ['🍅', '🍄', '🥦', '🍀', '🥒', '🥕', '🌶️'];
-// Instead of writing this code
+// Instead of writing this code.
 // const tomato = salad[0];
 // const mushroom = salad[1];
 // const carrot= salad[5];
 
-// Better way write
+// Better way write.
 const [tomato, mushroom, carrot] = ['🍅', '🍄', '🥕'];
 console.log(tomato, mushroom, carrot);
 ```
@@ -296,8 +296,8 @@ const vege = fruits[3];
 const carrot1 = vege[2];
 console.log(carrot1);
 
-const carrot2 = fruits[3][2]; // Proper way to get element inside a nested array in this scenario
-let [, , , , , [, , carrot3]] = ['🍊', '🍏', '🍋', ['🍅', '🍄', '🥕']]; // More complicated with array destructuring
+const carrot2 = fruits[3][2]; // Proper way to get element inside a nested array in this scenario.
+let [, , , , , [, , carrot3]] = ['🍊', '🍏', '🍋', ['🍅', '🍄', '🥕']]; // More complicated with array destructuring.
 console.log(carrot3);
 ```
 
@@ -306,7 +306,7 @@ console.log(carrot3);
 > _`Rest parameter`_ or **...** is used on the **left side of the assignment operator** in destructuring.
 
 ```js
-const [tomato, mushroom, ...rest] = ['🍅', '🍄', '🥦', '🍀', '🥒', '🥕', '🌶️']; // ['🥦', '🍀', '🥒', '🥕', '🌶️']
+const [tomato, mushroom, ...rest] = ['🍅', '🍄', '🥦', '🍀', '🥒', '🥕', '🌶️']; // ['🥦', '🍀', '🥒', '🥕', '🌶️'].
 console.log(rest);
 ```
 
@@ -324,7 +324,7 @@ console.log('Array after copy :', saladCopy);
 console.log(
   'saladCopy and salad arrays are different even if they hold the same values : ',
   salad === saladCopy
-); // false
+); // false.
 ```
 
 ### 8.2. Swap array values with spead operator
@@ -352,14 +352,14 @@ console.log(emotionalVeggies);
 ```js
 const arr1 = [1, 2, 3];
 const arr2 = new Array(7);
-console.log(arr1.length); // 3
-console.log(arr2.length); // 7
+console.log(arr1.length); // 3.
+console.log(arr2.length); // 7.
 
 // Max size of an array is 2 ** 32 - 1 = 4 294 967 295.
 arr1.length = 2; // Remove the last element from arr .
-console.log(arr1); // [1,2]
+console.log(arr1); // [1,2].
 arr1.length = 0; // Empty the array arr1.
-console.log(arr1); // []
+console.log(arr1); // [].
 arr1.lenght = 9; // Fill the rest of values inside the array with empty value.
 console.log(arr1);
 ```
@@ -428,9 +428,9 @@ console.log(names.includes('bob')); // true.
 ```js
 const names = ['tom', 'alex', 'bob', 'john'];
 const alexIndex = names.indexOf('alex');
-console.log(alexIndex); // 1
+console.log(alexIndex); // 1.
 const bobIndex = names.indexOf('bob');
-console.log(bobIndex); // 2
+console.log(bobIndex); // 2.
 ```
 
 ### 10.6. lastIndexOf
@@ -439,11 +439,11 @@ console.log(bobIndex); // 2
 
 ```js
 const firstTomIndex = names.indexOf('tom');
-console.log(firstTomIndex); // 0
+console.log(firstTomIndex); // 0.
 const lastTomIndex = names.lastIndexOf('tom');
-console.log(lastTomIndex); // 4
+console.log(lastTomIndex); // 4.
 const lastAliceIndex = names.lastIndexOf('alice');
-console.log(lastAliceIndex); // -1
+console.log(lastAliceIndex); // -1.
 ```
 
 ### 10.7. reverse
@@ -477,8 +477,8 @@ console.log(artists.sort());
 
 // Sorting descending with comparator.
 /*
-    If the two values to compare are same, do nothing
-    If a > b, then reverse values to sort descending
+    If the two values to compare are same, do nothing.
+    If a > b, then reverse values to sort descending.
     otherwise, the order is correct and no need to do something.
 */
 console.log(
@@ -489,7 +489,7 @@ console.log(
 console.log(artists);
 
 let ages = [2, 1000, 10, 3, 23, 12, 30, 21];
-console.log('Default sorting : ', ages.sort()); // [10, 1000, 12, 2, 21, 23, 3, 30]
+console.log('Default sorting : ', ages.sort()); // [10, 1000, 12, 2, 21, 23, 3, 30].
 console.log(
   'Correct Ascending sorting : ',
   ages.sort(function (a, b) {
@@ -520,24 +520,24 @@ splice(start, deleteCount, item1, item2, item3);
 
 ```js
 let names = ['tom', 'alex', 'bob', 'john', 'alice'];
-const removedName1 = names.splice(0, 1); // Remove one element from position (index) zero 'tom' => Remove 'tom'
-console.log(names); // ['alex', 'bob', 'john', 'alice']
-console.log(removedName1); // ['tom'];
+const removedName1 = names.splice(0, 1); // Remove one element from position (index) zero 'tom' => Remove 'tom'.
+console.log(names); // ['alex', 'bob', 'john', 'alice'].
+console.log(removedName1); // ['tom'].
 
 names = ['tom', 'alex', 'bob', 'john', 'alice'];
-const removedName2 = names.splice(0, 1, 'John'); // Remove one element from position (index) zero 'tom' and add 'john' from index 0
+const removedName2 = names.splice(0, 1, 'John'); // Remove one element from position (index) zero 'tom' and add 'john' from index 0.
 console.log(names);
-console.log(removedName2); // ['tom'];
+console.log(removedName2); // ['tom'].
 
 names = ['tom', 'alex', 'bob', 'john', 'alice'];
 const removedName3 = names.splice(2, 1, 'zack'); // Starting from index 2 ('bob), remove one element and add zack.
-console.log(names); // ['tom', 'alex', 'zack', 'john', 'alice'];
-console.log(removedName3); // ['bob'];
+console.log(names); // ['tom', 'alex', 'zack', 'john', 'alice'].
+console.log(removedName3); // ['bob'].
 
 names = ['tom', 'alex', 'bob', 'john', 'alice'];
 const removedName4 = names.splice(3, 0, 'zack'); // Starting from index 3 ('bob), remove zero element and add zack from this index.
-console.log(names); // ['tom', 'alex', 'bob', 'zack', 'john', 'alice']
-console.log(removedName4); // [];
+console.log(names); // ['tom', 'alex', 'bob', 'zack', 'john', 'alice'].
+console.log(removedName4); // [].
 ```
 
 ### 10.10. at
@@ -546,11 +546,11 @@ console.log(removedName4); // [];
 
 ```js
 const junkFoodILove = ['🧀', '🌭', '🍔', '🍕', '🍦', '🍰', '🍟'];
-console.log(junkFoodILove.at(0)); // First element : 🧀
-console.log(junkFoodILove.at(3)); // Fourth element : 🍕
-console.log(junkFoodILove.at(-1)); // Last element : 🍟
-console.log(junkFoodILove.at(-5)); // Fifth element from the last : 🍔
-console.log(junkFoodILove.at(10)); // undefined
+console.log(junkFoodILove.at(0)); // First element : 🧀.
+console.log(junkFoodILove.at(3)); // Fourth element : 🍕.
+console.log(junkFoodILove.at(-1)); // Last element : 🍟.
+console.log(junkFoodILove.at(-5)); // Fifth element from the last : 🍔.
+console.log(junkFoodILove.at(10)); // undefined.
 ```
 
 ### 10.11. copyWithin
@@ -568,9 +568,9 @@ copyWithin(target, start, end);
 
 ```js
 let array = [1, 2, 3, 4, 5, 6, 7];
-console.log(array.copyWithin(0, 3, 6)); // From position or index 0 (1), copy the element from index 3 (4) to the array length 6 [4, 5, 6, 4, 5, 6, 7]
+console.log(array.copyWithin(0, 3, 6)); // From position or index 0 (1), copy the element from index 3 (4). to the array length 6 [4, 5, 6, 4, 5, 6, 7].
 array = [1, 2, 3, 4, 5, 6, 7];
-console.log(array.copyWithin(0, 4)); // From zero index (1), copy starting from index 4 (5) until the end of array [5, 6, 7, 4, 5, 6, 7]
+console.log(array.copyWithin(0, 4)); // From zero index (1), copy starting from index 4 (5) until the end of array [5, 6, 7, 4, 5, 6, 7].
 ```
 
 ### 10.12. flat
@@ -579,12 +579,12 @@ console.log(array.copyWithin(0, 4)); // From zero index (1), copy starting from 
 
 ```js
 const arr1 = [0, 1, 2, [3, 4]];
-console.log(arr1.flat()); // Remove the array at first level [0, 1, 2, 3, 4]
+console.log(arr1.flat()); // Remove the array at first level [0, 1, 2, 3, 4].
 const arr2 = [0, 1, [2, [3, [4, 5]]]];
-console.log('First level Flating : ', arr2.flat()); // Flat only at first level [0, 1, 2, [3, [4, 5]]]
-console.log('Second level Flating : ', arr2.flat(2)); // Flat at the second level [0, 1, 2, 3, [4, 5]]
-console.log('Third level Flating : ', arr2.flat(3)); // Flat at the third level [0, 1, 2, 3, 4, 5]
-console.log('Flat at any level : ', arr2.flat(Infinity)); // Flat at any level [0, 1, 2, 3, 4]
+console.log('First level Flating : ', arr2.flat()); // Flat only at first level [0, 1, 2, [3, [4, 5]]].
+console.log('Second level Flating : ', arr2.flat(2)); // Flat at the second level [0, 1, 2, 3, [4, 5]].
+console.log('Third level Flating : ', arr2.flat(3)); // Flat at the third level [0, 1, 2, 3, 4, 5].
+console.log('Flat at any level : ', arr2.flat(Infinity)); // Flat at any level [0, 1, 2, 3, 4].
 ```
 
 ### 10.13. groupBy
@@ -600,11 +600,11 @@ const employees = [
   { nane: 'Tom', dept: 'Sales', salary: 6000 },
 ];
 
-// Group by Department
+// Group by Department.
 const groupedByDept = Object.groupBy(employees, ({ dept }) => dept);
 console.log(groupedByDept);
 
-// Group by Salary
+// Group by Salary.
 const groupedByByMoreThan5000 = Object.groupBy(employees, ({ salary }) => {
   return salary >= 5000 ? 'More than 5K.' : 'Less than 5K.';
 });
@@ -629,13 +629,13 @@ with ((index, value));
 ```
 
 ```js
-// toReversed()
+// toReversed().
 const items = [1, 2, 3];
 const reversedItems = items.toReversed();
 console.log('Initial array : ', items);
 console.log('Reversed array', reversedItems);
 
-// toSorted()
+// toSorted().
 let months = ['January', 'March', 'December', 'February'];
 const sortedMonthsAsc = months.toSorted();
 console.log('Initial array : ', months);
@@ -650,24 +650,24 @@ console.log('Sorted array Descending : ', sortedMonthDesc);
 
 // toSpliced()
 const monthsShort = ['Jan', 'Mar', 'Apr', 'May'];
-const splicedMonth = monthsShort.toSpliced(1, 0, 'Feb'); // From index 1 ('March'), remove zero item and add from this index 'Feb' ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+const splicedMonth = monthsShort.toSpliced(1, 0, 'Feb'); // From index 1 ('March'), remove zero item and add from this index 'Feb' ['Jan', 'Feb', 'Mar', 'Apr', 'May'].
 console.log('Initial array : ', monthsShort);
 console.log('Spliced array : ', splicedMonth);
 
 // with
 let numbers = [1, 2, 3, 4, 5];
-console.log('Array before change : ', numbers); // [1, 2, 3, 4, 5]
+console.log('Array before change : ', numbers); // [1, 2, 3, 4, 5].
 numbers[2] = 6; // Changes the value 3 with 6 but by mutating the array.
-console.log('Array after change : ', numbers); // [1, 2, 6, 4, 5]
+console.log('Array after change : ', numbers); // [1, 2, 6, 4, 5].
 
 numbers = [1, 2, 3, 4, 5];
-const newArray = numbers.with(2, 6); // Replace the value at index 2 with the value 6
+const newArray = numbers.with(2, 6); // Replace the value at index 2 with the value 6.
 console.log('Initial array : ', numbers);
 console.log('Spliced array : ', newArray);
 
 const newArray2 = numbers.with(-2, 8); // Replace the second element from the right to left (4) of array with 8.
 console.log(numbers);
-console.log(newArray2); // [1, 2, 3, 8, 5]
+console.log(newArray2); // [1, 2, 3, 8, 5].
 ```
 
 ## 11. Static Array methods in JavaScript : Array-like
@@ -679,10 +679,10 @@ console.log(newArray2); // [1, 2, 3, 8, 5]
 ```js
 const array_like = { 0: 'I', 1: 'am', 2: 'array-like', length: 3 };
 console.log(array_like);
-console.log(array_like[2]); // array-like
-console.log(array_like.length); // 3
-console.log('Is array_like is an array? ', Array.isArray(array_like)); // false
-console.log('Is array_like is an object? ', array_like instanceof Object); // true
+console.log(array_like[2]); // array-like.
+console.log(array_like.length); // 3.
+console.log('Is array_like is an array? ', Array.isArray(array_like)); // false.
+console.log('Is array_like is an object? ', array_like instanceof Object); // true.
 ```
 
 > Object that has `elements indexed` and `length property` are _`Array-like`_.
@@ -726,7 +726,7 @@ console.log('ConvertedArray : ', collectionArr);
 const collectionPromise = Array.fromAsync(document.getElementsByTagName('li'));
 console.log('Converted Array', collectionPromise);
 
-// Handle Promise
+// Handle Promise.
 collectionPromise
   .then((value) => console.log(value))
   .catch((error) =>
@@ -863,7 +863,7 @@ const newArray = arr.map((currentValue, index, array) => {
 ```
 
 ```js
-// Transform the customers to add a title and a full name
+// Transform the customers to add a title and a full name.
 const customerWithFullName = customers.map((customer) => {
   let title = '';
   if (customer.gender === 'M') {
@@ -930,18 +930,18 @@ const subsResult = numbers.reduce((accu, current) => {
 const subsRightResult = numbers.reduceRight((accu, current) => {
   return accu - current;
 });
-console.log('Normal reduce : ', subsResult); // 45
-console.log('Reduce right: ', subsRightResult); // -125
+console.log('Normal reduce : ', subsResult); // 45.
+console.log('Reduce right: ', subsRightResult); // -125.
 
 const exponent = [2, 4, 6];
 const power1 = exponent.reduce((acc, current) => {
   return acc ** current;
-}); // 2^4^6 = 16 777 216
+}); // 2^4^6 = 16 777 216.
 console.log(power1);
 
 const power2 = exponent.reduceRight((accu, current) => {
   return accu ** current;
-}); // 6^4^2 = 1 679 616
+}); // 6^4^2 = 1 679 616.
 console.log(power2);
 ```
 
@@ -966,13 +966,13 @@ arr.some((element, index, array) => {
 const hasYoungCustomer = customers.some((customer) => {
   return customer.age < 10;
 });
-console.log('Has young customer (age < 10)? ', hasYoungCustomer); // true
+console.log('Has young customer (age < 10)? ', hasYoungCustomer); // true.
 
-// Do we have children
+// Do we have children.
 const hasChildren = customers.some((customer) => {
   return customer.age < 7;
 });
-console.log('Has children customer (age < 7)? ', hasChildren); // false
+console.log('Has children customer (age < 7)? ', hasChildren); // false.
 ```
 
 ### 12.6. every
@@ -992,12 +992,12 @@ arr.every((currentElement, currentIndex, array) => {
 ```
 
 ```js
-// Every married customer
+// Every married customer.
 const isAllMarried = customers.every((customer) => {
   return customer.married;
 });
 
-console.log('All customer married? ', isAllMarried); // false
+console.log('All customer married? ', isAllMarried); // false.
 ```
 
 ### 12.7. find
@@ -1005,11 +1005,11 @@ console.log('All customer married? ', isAllMarried); // false
 > _`find`_ finds a value that satisfy a specific criteria. This method returns the element value instead of a boolean like `some`. When the criteria does not matched, find return `undefined`.
 
 ```js
-// Find the youngest customer
+// Find the youngest customer.
 const foundYoungCustomer = customers.find((customer) => {
   return customer.age < 10;
 });
-console.log('Found young customer(age < 10) : ', foundYoungCustomer); // true
+console.log('Found young customer(age < 10) : ', foundYoungCustomer); // true.
 ```
 
 ### 12.8. findIndex
@@ -1017,7 +1017,7 @@ console.log('Found young customer(age < 10) : ', foundYoungCustomer); // true
 > _`findIndex`_ retreives **the index of the first occurence** from left side of the array instead of finding element. If not found, it returns `-1`.
 
 ```js
-// Find the youngest customer position
+// Find the youngest customer position.
 const foundYoungCustomerPosition = customers.findIndex((customer) => {
   return customer.age < 10;
 });
@@ -1032,7 +1032,7 @@ console.log(
 > _`findLastIndex`_ finds the last index from **right side of the array**. Gives the last matching element index. If not found, it returns `-1`.
 
 ```js
-// Find the last old customer position
+// Find the last old customer position.
 const foundLastOldCustomerPosition = customers.findLastIndex((customer) => {
   return customer.age > 60;
 });
@@ -1047,11 +1047,11 @@ console.log(
 > _`findLast`_ find the **last occurence** of an array element from **right the left side**. If more than one customer are married, this method will find the last one only. This method returns the element value and not a boolean. When the criteria does not matched, findLast returns `undefined`.
 
 ```js
-// Find the last married customer position
+// Find the last married customer position.
 const foundLastMarriedCustomer = customers.findLast((customer) => {
   return customer.married;
 });
-console.log('Found the last married customer : ', foundLastMarriedCustomer); // Dev
+console.log('Found the last married customer : ', foundLastMarriedCustomer); // Dev.
 ```
 
 ### 12.11. Chaining with map, filter and reduce
@@ -1060,20 +1060,20 @@ console.log('Found the last married customer : ', foundLastMarriedCustomer); // 
 > This can be done by using these methods separately, but the best way is to _**chaining them**_.
 
 ```js
-// Get the total amount spent by Married customers
-// Step 1 : filter - Find all the married customer
+// Get the total amount spent by Married customers.
+// Step 1 : filter - Find all the married customer.
 const marriedCustomer = customers.filter((customer) => {
   return customer.married;
 });
 console.log(marriedCustomer);
 
-// Step 2 : map - Get the total expense of each married customer
+// Step 2 : map - Get the total expense of each married customer.
 const marriedExpenseCustomer = marriedCustomer.map((customer) => {
   return customer.expense;
 });
 console.log(marriedExpenseCustomer);
 
-// Step 3 : reduce - Get the total amount spent
+// Step 3 : reduce - Get the total amount spent.
 const totalSpentByMarriedCustomer = marriedExpenseCustomer.reduce(
   (accu, current) => {
     return accu + current;
@@ -1088,7 +1088,7 @@ console.log(
 
 // ============================
 
-// Get the total amount spent by Married customers
+// Get the total amount spent by Married customers.
 // Instead of doing the calculation separately, we can chain them => filter() => map() => reduce() commonly.
 const totalSpentByMarriedCustomer = customers
   .filter((customer) => {
@@ -1129,10 +1129,10 @@ console.log('Sum using forEach : ', sum);
 ```js
 const arr = [1, 2, 3, 4, 5];
 const arrItr1 = arr.entries();
-console.log('Array Iterator : ', arrItr1); // Array Iterator
-console.log('Array Iterator value : ', arrItr1.next().value); // index and value
+console.log('Array Iterator : ', arrItr1); // Array Iterator.
+console.log('Array Iterator value : ', arrItr1.next().value); // index and value.
 
-// Better way to access elements
+// Better way to access elements.
 for (let [index, element] of arrItr1) {
   console.log(index, element);
 }
@@ -1144,10 +1144,10 @@ for (let [index, element] of arrItr1) {
 
 ```js
 const arrItr2 = arr.values();
-console.log('Array Iterator : ', arrItr2); // Array Iterator
-console.log('Array Iterator value : ', arrItr2.next().value); // Only values
+console.log('Array Iterator : ', arrItr2); // Array Iterator.
+console.log('Array Iterator value : ', arrItr2.next().value); // Only values.
 
-// Better way to access values
+// Better way to access values.
 for (let values of arrItr2) {
   console.log(values);
 }
@@ -1162,16 +1162,16 @@ const arr = [1, 2, 3, 4, 5];
 console.log(
   'Simple Map : ',
   arr.map((item) => item * 2)
-); // [2, 4, 6, 8, 10]
+); // [2, 4, 6, 8, 10].
 console.log(
   'Simple flatMap : ',
   arr.flatMap((item) => item * 2)
-); // [2, 4, 6, 8, 10]
+); // [2, 4, 6, 8, 10].
 
 console.log(
   'Complex Map : ',
   arr.map((item) => [item * 2])
-); // [[2], [4],[6], [8], [10]]
+); // [[2], [4],[6], [8], [10]].
 console.log(
   'Complex flatMap : ',
   arr.flatMap((item) => [item * 2])
@@ -1180,7 +1180,7 @@ console.log(
 console.log(
   'To complex Map : ',
   arr.map((item) => [[item * 2]])
-); // [[[2]], [[4]],[[6]], [[8]], [[10]]]
+); // [[[2]], [[4]],[[6]], [[8]], [[10]]].
 console.log(
   'To complex flatMap : ',
   arr.flatMap((item) => [[item * 2]])
@@ -1232,14 +1232,14 @@ Please complete the following tasks and post them on the tapaScript Discord unde
   ```js
   for (let fruitIndex in fruits) {
     if (fruitIndex % 2 !== 0) {
-      // Odd index found
+      // Odd index found.
       console.log(fruits[fruitIndex]);
     }
   }
-  // Same result
+  // Same result.
   for (let [index, fruit] of fruits.entries()) {
     if (index % 2 !== 0) {
-      // Odd index found
+      // Odd index found.
       console.log(fruit);
     }
   }
@@ -1250,7 +1250,7 @@ Please complete the following tasks and post them on the tapaScript Discord unde
   ```js
   let salad = ['🍄', '🥦', '🍀', '🥒', '🌶️'];
   console.log('Salad before adding : ', salad);
-  salad.unshift('🍅'); // Add tomato at the front
+  salad.unshift('🍅'); // Add tomato at the front.
   console.log('Salad with tomato at the front : ', salad);
   salad.push('🥕'); // Adding carot at the end.
   console.log('Salad with carot at the end : ', salad);
@@ -1351,7 +1351,7 @@ let newEmotions = ['😅', '🤭', '😇', '😔', '😕', '😣', '🤩', '🤗
 newEmotions.length = 0;
 console.log('Empty array using length property : ', newEmotions);
 newEmotions = ['😅', '🤭', '😇', '😔', '😕', '😣', '🤩', '🤗', '😨', '😔'];
-// Empty array with pop method
+// Empty array with pop method.
 const emotion2Length = 10;
 for (let i = 0; i < emotion2Length; i++) {
   newEmotions.pop();
@@ -1359,24 +1359,24 @@ for (let i = 0; i < emotion2Length; i++) {
 console.log('Empty array using pop() method : ', newEmotions);
 
 newEmotions = ['😅', '🤭', '😇', '😔', '😕', '😣', '🤩', '🤗', '😨', '😔'];
-// Empty array with shift method
+// Empty array with shift method.
 for (let i = 0; i < emotion2Length; i++) {
   newEmotions.shift();
 }
 console.log('Empty array using shift() method : ', newEmotions);
 
 newEmotions = ['😅', '🤭', '😇', '😔', '😕', '😣', '🤩', '🤗', '😨', '😔'];
-// Empty array with []
+// Empty array with [].
 newEmotions = [];
 console.log('Empty array using [] : ', newEmotions);
 
 newEmotions = ['😅', '🤭', '😇', '😔', '😕', '😣', '🤩', '🤗', '😨', '😔'];
-// Empty array with slice
+// Empty array with slice.
 newEmotions.splice(0, newEmotions.length);
 console.log('Empty array using slice method() : ', newEmotions);
 
 // **T-014**: What happens when you concatenate two empty arrays?
-// When two empty array are concatenate, it return an new empty array
+// When two empty array are concatenate, it return an new empty array.
 const arr3 = [];
 const arr4 = [];
 const emptyArrConcatenated1 = arr3.concat(arr4);
@@ -1388,7 +1388,7 @@ console.log('Empty array with spread operator : ', emptyArrConcatenated2);
 - [x] **T-014**: What happens when you concatenate two empty arrays?
 
 ```js
-// When two empty array are concatenate, it return an new empty array
+// When two empty array are concatenate, it return an new empty array.
 const arr3 = [];
 const arr4 = [];
 const emptyArrConcatenated1 = arr3.concat(arr4);
@@ -1400,10 +1400,10 @@ console.log('Empty array with spread operator : ', emptyArrConcatenated2);
 - [x] **T-015**: How can you check if a value is partially matching with any of the elements of an Array?
 
 ```js
-// By using the includes() method
+// By using the includes() method.
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
-console.log('Looking for July from moths array : ', months.includes('July')); // false
-console.log('Looking for Feb from moths array : ', months.includes('Feb')); // true
+console.log('Looking for July from moths array : ', months.includes('July')); // false.
+console.log('Looking for Feb from moths array : ', months.includes('Feb')); // true.
 ```
 
 - [x] **T-016**: What is the difference between the slice() and splice() methods?
@@ -1426,16 +1426,16 @@ console.log('Looking for Feb from moths array : ', months.includes('Feb')); // t
     'Patricia Write35',
   ];
   console.log('source array before ascending sorting : ', alphanumericArray);
-  const sortAlphanumericArrayAsc = alphanumericArray.toSorted(); // Sort Ascending by default
+  const sortAlphanumericArrayAsc = alphanumericArray.toSorted(); // Sort Ascending by default.
   console.log('Array sorted ascending : ', sortAlphanumericArrayAsc);
-  console.log('source array after ascending sorting : ', alphanumericArray); // Not mutated or changed
+  console.log('source array after ascending sorting : ', alphanumericArray); // Not mutated or changed.
 
   console.log('source array before descending sorting : ', alphanumericArray);
   const sortAlphanumericArrayDesc = alphanumericArray.toSorted(function (a, b) {
     return a === b ? 0 : a > b ? -1 : 1;
   }); // Sort Descending using comparator callback function
   console.log('Array sorted descending : ', sortAlphanumericArrayDesc);
-  console.log('source array after descending sorting : ', alphanumericArray); // Not mutated or changed
+  console.log('source array after descending sorting : ', alphanumericArray); // Not mutated or changed.
   ```
 
 - [x] **T-018**: Can you give examples of sparse and dense arrays?
@@ -1466,7 +1466,7 @@ console.log('Looking for Feb from moths array : ', months.includes('Feb')); // t
 - [x] **T-019**: Give a practical usages of the .fill() method
 
   ```js
-  // **T-019**: Give a practical usages of the .fill() method
+  // **T-019**: Give a practical usages of the .fill() method.
   let colorsArray = ['Yellow', 'Green', 'Blue', 'Pink', 'Magenta'];
   colorsArray.fill('Gray', 2, 3); // From array indes 2 (Blue), fil array value with 'Gray' until the array length 3 (Blue). That means, Blue will be replaced with Gray.
   console.log('Array with fill method applied : ', colorsArray);
@@ -1475,7 +1475,7 @@ console.log('Looking for Feb from moths array : ', months.includes('Feb')); // t
 - [x] **T-020**: How to convert an array to a string?
 
   ```js
-  const colorsArrayToString = colorsArray.join('=>'); // Join with string '=>'
+  const colorsArrayToString = colorsArray.join('=>'); // Join with string '=>'.
   console.log('Converting color array to String', colorsArrayToString);
   ```
 
@@ -1545,12 +1545,14 @@ console.log('Looking for Feb from moths array : ', months.includes('Feb')); // t
 
   ```js
   // Get all employee salary
-  const salaries = employees.map((employee) => {
-    return employee.salary;
-  });
+  const highestEmployeeSalary = employees
+    .map((employee) => {
+      return employee.salary;
+    }) // Get the max Salary from employees array using reduce.
+    .reduce((accu, currentSalary) => {
+      return Math.max(accu, currentSalary);
+    }, 0);
 
-  // Get the max Salary from employees array.
-  const highestEmployeeSalary = Math.max(...salaries);
   console.log('The employee with highest salary is : ', highestEmployeeSalary);
   ```
 
@@ -1684,11 +1686,11 @@ console.log(
 - [x] **T-034**: Verify if all employees belong to a department listed in the departments array.
 
   ```js
-  // Get all departmentId only
+  // Get all departmentId only.
   const departmentId = departments.map((department) => {
     return department.id;
   });
-  // Check if all employee has an departmentId match the one in the previous departmetId array
+  // Check if all employee has an departmentId match the one in the previous departmetId array.
   const isThereAllEmployeeBelongsToDepartmentArray = employees.every(
     (employee) => {
       return departmentId.includes(employee.departmentId);
@@ -1811,8 +1813,8 @@ console.log(
   ];
 
   const employeeWithSkills = employees2.map((employee) => {
-    let skills = employee.skills.flat(); // Flat skills array
-    employee['skills'] = skills; // Update the array skills with flattened
+    let skills = employee.skills.flat(); // Flat skills array.
+    employee['skills'] = skills; // Update the array skills with flattened.
 
     return employee;
   });
@@ -1846,14 +1848,154 @@ console.log(
   );
   ```
 
-- [ ] **T-040**: Check if there is any department where all employees earn more than 5000.
-- [ ] **T-041**: Assume each employee has a projects array (e.g., { id: 1, name: "Alice", projects: ["Project A", "Project B"] }).
+- [x] **T-040**: Check if there is any department where all employees earn more than 5000.
+
+  ```js
+  // First map departments array to loop through each one.
+  let isThereDepartmentWithEmployeesEarningMore5000 = departments
+    .map((department) => {
+      // filter to get all employee working in the current selected department.
+      let employeeOfDepartment = employees
+        .filter((employee) => {
+          return employee.departmentId === department.id;
+        }) // Check whether all employee from this department earn more than 5000.
+        .every((employee) => {
+          return employee.salary > 5000;
+        });
+
+      return employeeOfDepartment;
+    }) // From boolean array, check if at least one department (index) has employee which earn more than 5000 (Means true).
+    .some((empMoreThan5000) => {
+      return empMoreThan5000;
+    });
+
+  // If the last value is true, then the answer is true and false otherwirse.
+  console.log(
+    'Is there any department where employees earn more than 5000 USD : ',
+    isThereDepartmentWithEmployeesEarningMore5000 ? 'YES' : 'NO'
+  );
+  ```
+
+- [x] **T-041**: Assume each employee has a projects array (e.g., { id: 1, name: "Alice", projects: ["Project A", "Project B"] }).
       Find the total number of unique projects being handled across all employees.
+
+  ```js
+  const employeesProject = [
+    {
+      id: 1,
+      name: 'Alice',
+      departmentId: 1,
+      projects: ['Project A', 'Project B'],
+      salary: 5000,
+    },
+    {
+      id: 2,
+      name: 'Bob',
+      departmentId: 2,
+      projects: ['Project A', 'Project B', 'Project C'],
+      salary: 7000,
+    },
+    {
+      id: 3,
+      name: 'Charlie',
+      departmentId: 3,
+      projects: ['Project E', 'Project F'],
+      salary: 4500,
+    },
+    {
+      id: 4,
+      name: 'Diana',
+      departmentId: 1,
+      projects: ['Project G', 'Project H', 'Project I'],
+      salary: 5500,
+    },
+    {
+      id: 5,
+      name: 'Edward',
+      departmentId: 2,
+      projects: ['Project B', 'Project D'],
+      salary: 8000,
+    },
+    {
+      id: 6,
+      name: 'Fiona',
+      departmentId: 4,
+      projects: ['Project J', 'Project D'],
+      salary: 6000,
+    },
+    {
+      id: 7,
+      name: 'George',
+      departmentId: 3,
+      projects: ['Project K', 'Project L'],
+      salary: 5200,
+    },
+    {
+      id: 8,
+      name: 'Helen',
+      departmentId: 4,
+      projects: ['Project M'],
+      salary: 7200,
+    },
+    {
+      id: 9,
+      name: 'Ian',
+      departmentId: 2,
+      projects: ['Project N'],
+      salary: 4800,
+    },
+    {
+      id: 10,
+      name: 'Jane',
+      departmentId: 1,
+      projects: ['Project A', 'Project B', 'Project O', 'Project P'],
+      salary: 5100,
+    },
+  ];
+
+  // Get all employee project with map.
+  const allEmployeeProjects = employeesProject
+    .map((employee) => {
+      return employee.projects;
+    }) // Then reduce the previous array to have only one project's array.
+    .reduce((project, currentProject) => {
+      return project.concat(currentProject);
+    }, []); // To return an array, we initialize the reduce with an empty array.
+
+  // Reduce the projects' array to found only unique ones.
+  const totalUniqueProject = allEmployeeProjects.reduce(
+    (projectAccu, currentProject, index, allProjects) => {
+      let countProjectNumber = 0;
+      // Loop from all projects' array and when a project is repeated more than one,
+      // It should not be added to the final array (totalUniqueProject).
+      allProjects.forEach((project) => {
+        if (project === currentProject) {
+          countProjectNumber++;
+        }
+      });
+      // Once a project is reapeted more than once, the accumulator is returned,
+      // otherwise, we concatenate array with the new unique project found.
+
+      return countProjectNumber > 1
+        ? projectAccu
+        : projectAccu.concat(currentProject);
+    },
+    [] // To return an array, we initialize the reduce with an empty array.
+  );
+
+  console.log(
+    'Total unique projects handled across all employees is : ',
+    totalUniqueProject.length,
+    ' And their detail is : ',
+    totalUniqueProject
+  );
+  ```
+
 - [x] **T-042**: For each employee, find their department name and return an array of employee names with their department names.
 
   ```js
   const employeeWithDepartment = employees.map((employee) => {
-    // Get employee department name as array of Object
+    // Get employee department name as array of Object.
     let employeeDepartment = departments.filter((department) => {
       return department.id === employee.departmentId;
     });
@@ -1908,7 +2050,7 @@ console.log(
   ```js
   console.log('Print employee name and salary using for-loop');
   for (let employee of employees) {
-    let { name, salary } = employee; // Destructuring employee object
+    let { name, salary } = employee; // Destructuring employee object.
     console.log(`Employee name : ${name} and Salary : ${salary}`);
   }
   ```
@@ -2027,17 +2169,49 @@ console.log(
   console.log('Fruits grouped by the first letter : ', fruitGroupByFirstLetter);
   ```
 
-- [ ] **T-056**: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
+- [x] **T-056**: From this array [3, 7, 3, 2, 3, 8, 7, 7], find the most repeated number. Hint: Use array method.
 
-```js
+  ```js
+  // const arr5 = [
+  //   3, 0, 1, 4, 0, 3, 4, 2, 3, 3, 1, 0, 4, 4, 1, 1, 0, 8, 4, 3, 3, 4, 7, 0, 7, 8,
+  //   8, 4, 0, 7, 3, 0, 4,
+  // ];
 
-```
+  // Some improvement should be done for this exercise because sometine it is not working properly.
+
+  const arr5 = [3, 7, 3, 2, 3, 8, 7, 7];
+  const groupedNumbers = Object.groupBy(arr5, (number) => number); // First group each number and match by their occurence.
+  let highestLength = 0; // Will hold the highest length fr the grouped numbers.
+  // Convert grouped object to array.
+  const highestObjArray = Object.entries(groupedNumbers)
+    .filter((number, index, arr) => {
+      // Filter the array to match only those with the highest length.
+      if (highestLength < number[1].length) {
+        highestLength = number[1].length;
+      }
+
+      return number[1].length === highestLength;
+    })
+    .flat();
+
+  // Finally formatting the view.
+  // When more than one values matched the result, loop through then and print values (Only on even index are numbers).
+  console.log(
+    highestObjArray.length > 2
+      ? ` ${highestObjArray.forEach((number, index) => {
+          if (index % 2 === 0) {
+            console.log('The most repeated values : ', number);
+          }
+        })} and ${highestLength} times each of them.`
+      : `The most repeated value is ${highestObjArray[0]} and ${highestLength} times`
+  );
+  ```
 
 - [x] **T-057**: Find the median of [5, 2, 9, 1, 3, 6, 8].
 
   ```js
   const arr6 = [5, 2, 9, 1, 3, 6, 8];
-  // Sort ASC
+  // Sort ASC.
   const sortedArr = arr6.sort((a, b) => {
     return a === b ? 0 : a > b ? 1 : -1;
   });
@@ -2117,7 +2291,7 @@ console.log(
   });
   console.log('Array before sorting : ', arrNumbers);
   console.log('Array sorted Ascending : ', sortedArrNumbers);
-  console.log('Array after sorting : ', arrNumbers); // Same array, not mutate
+  console.log('Array after sorting : ', arrNumbers); // Same array, not mutate.
   ```
 
 - [x] **T-063**: Reverse [1, 2, 3, 4, 5] using toReversed() and compare it with reverse()
@@ -2127,12 +2301,12 @@ console.log(
   console.log('Array before toReversed() : ', numbersValues);
   const arrWithToReversed = numbersValues.toReversed();
   console.log('Array with toReversed() applied : ', arrWithToReversed);
-  console.log('Array after toReversed() : ', numbersValues); // Same array, not mutate
+  console.log('Array after toReversed() : ', numbersValues); // Same array, not mutate.
 
   console.log('Array before reverse() : ', numbersValues);
   const arrWithReversed = numbersValues.reverse();
   console.log('Array with reverse() applied : ', arrWithReversed);
-  console.log('Array after reverse() : ', numbersValues); // Not same array because it has mutated
+  console.log('Array after reverse() : ', numbersValues); // Not same array because it has mutated.
   ```
 
 - [x] **T-064**: Group the follwing array elements based on age(Adult vs Non-Adult):
@@ -2161,19 +2335,22 @@ console.log(
   ```js
   const sentence =
     '40 Days of JavaScript by tapaScript is a powerful initiative';
-  // Create an array by new space found
+  // Create an array by new space found.
   const arrayFromSentence = sentence.split(' ');
-  // Create a new array with word length
-  const arrayWithWordLength = arrayFromSentence.map((word) => {
-    return word.length;
-  });
-  // Find the maximun word length
-  const maxWordLength = Math.max(...arrayWithWordLength);
-  // Filter the array with to the maximum word length
+  // Create a new array with word length.
+  const maxWordLength = arrayFromSentence
+    .map((word) => {
+      return word.length;
+    }) // Aplying reduce to find the maximun words length.
+    .reduce((accu, curr) => {
+      return Math.max(accu, curr);
+    }, 0);
+  // Find the maximun word length.
+  // Filter the array with to the maximum word length.
   const theLongestWord = arrayFromSentence.filter((word) => {
     return word.length === maxWordLength;
   });
-  // Show the maximum word (single or multiple ones)
+  // Show the maximum word (single or multiple ones).
   console.log(
     theLongestWord.length > 1
       ? `The longest words are ${theLongestWord}`
@@ -2204,6 +2381,14 @@ console.log(
 
 ## Screenshots
 
-![Image]()
+![Image](https://github.com/user-attachments/assets/dc62fa7c-46f7-478d-8ffb-ca02f9039bc4)
 
-![Image]()
+![Image](https://github.com/user-attachments/assets/3087a45e-472c-46bf-a786-04c3bb271ad6)
+
+![Image](https://github.com/user-attachments/assets/9c06e3db-5205-42cb-bda3-a90ef93f0b27)
+
+![Image](https://github.com/user-attachments/assets/3c29e56e-f992-4e01-80f6-404c813a8c27)
+
+![Image](https://github.com/user-attachments/assets/846978d0-8aac-46f9-92d6-04ee62df2514)
+
+![Image](https://github.com/user-attachments/assets/3cfac11f-2619-4152-bb1f-cb09835c2850)
