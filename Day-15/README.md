@@ -2205,6 +2205,25 @@ console.log(
         })} and ${highestLength} times each of them.`
       : `The most repeated value is ${highestObjArray[0]} and ${highestLength} times`
   );
+
+  // Solution from Neeraj
+
+  const arrNum = [3, 7, 3, 2, 3, 8, 7, 7];
+
+  const freq = arrNum.reduce((num, current) => {
+    num[current] = (num[current] || 0) + 1;
+    return num;
+  }, {});
+
+  // console.log('freq : ', freq);
+  const maximumFreq = Math.max(...Object.values(freq));
+  // console.log('maximumFreq : ', maximumFreq);
+
+  const mostFrequent = Object.keys(freq)
+    .filter((key) => freq[key] === maximumFreq)
+    .map(Number);
+  console.log('====>Most repeated numbers : ', mostFrequent);
+  console.log('Frequency : ', maximumFreq);
   ```
 
 - [x] **T-057**: Find the median of [5, 2, 9, 1, 3, 6, 8].
