@@ -56,13 +56,13 @@
 
 > _`The source Panel Tab`_ (In Chrome) helps debug JavaScript source code and, has **three** primary sections :
 
-- _`File navigator`_ section or _`Navigator`_ section (On left side): This section contains all the files to browse on or look for by using the command `Ctrl + p` (on Windows) or `Cmd + p` (on Mac).
-- _`Code Editor`_ section (in the right side).
-- _`Debugger`_ Section (at the bottom).
+1. _`File navigator`_ section or _`Navigator`_ section (On left side): This section contains all the files to browse on or look for by using the command `Ctrl + p` (on Windows) or `Cmd + p` (on Mac).
+2. _`Code Editor`_ section (in the right side).
+3. _`Debugger`_ Section (at the bottom).
 
-![Image](https://github.com/user-attachments/assets/06d3731b-58bc-40c1-8121-fb716cc92316)
+![Image](https://github.com/user-attachments/assets/ab79e893-a391-4489-b77f-fb25df1df507)
 
-> Others tabs are:
+> Others Tabs are:
 
 - _`Elements`_ (to inspect UI objects).
 - _`Console`_ (the most famous for showing some kinds of messages to programmers).
