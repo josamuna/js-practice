@@ -126,20 +126,66 @@
 
 ## 13. Debugging Scope
 
+> The debugger allows to see the scope (**Glocal scope**, **Script scope** or **Block scope** and **Local scope**) from the Debugger section.
+
+![Image](https://github.com/user-attachments/assets/56a06349-970d-409e-94c8-261f178b1cfd)
+
 ## 14. Observing Call Stack
+
+> The debugger trackes also the **Call stack** execution.
+
+> In the same way, once we need to restart the execution context of a specific function, we can just right-click on it from the Call stack and choose Restart the frame to execute the same function again and again. In the same manner, the _`stack trace`_ could also be copied.
+
+![Image](https://github.com/user-attachments/assets/56a06349-970d-409e-94c8-261f178b1cfd)
 
 ## 15. Watching variable Expressions
 
-## 16. Edit and Save on Runtime
+> _`The Watch`_ debugger functionality plays a great role on tracking variables by adding them manually in the runtime. This is made `by clicking on the Watch` an add variables by clicking on the **+ sign** at the right side. Then, add as many variables is needed for debugging purposes..
 
-## 17. Workspace
+![Image](https://github.com/user-attachments/assets/be985a70-29f4-4861-9797-5c9a5a060d48)
+
+> To be able to see both Source Tab and the Console Tab, just _`click on the three dot`_ at the top-right of the DevTool and, choose **Show console drawer**.
+
+![Image](https://github.com/user-attachments/assets/be985a70-29f4-4861-9797-5c9a5a060d48)
+
+> Also, you can directly write expressions using the _`Create live expression`_ and using the Console instead of writing a lot of code in the `console.log` inside the Code Editor.
+
+![Image](https://github.com/user-attachments/assets/146d7f94-3a24-448b-a1ab-c27ec03df021)
+
+## 16. Javascript debugger keyword
+
+> Instead of using Breakpoint, it is still possible to just add the keyword `debugger` to the source code to paused the execution code at this line.
+
+```js
+const print = function () {
+  const name = document.getElementById('m_name').value;
+  const wish = document.getElementById('m_wish').value;
+
+  const message =
+    'Hello ' + name + ', Your wish `' + wish + +'` may come true!';
+  logger(message);
+  document.getElementById('output').innerHTML =
+    '<span class="message">' + message + '</span>';
+};
+debugger; // The execution code will be paused at this line
+const logger = function (text) {
+  console.log('**** I am a logger function ****');
+  console.log(text);
+};
+```
+
+## 17. Edit and Save on Runtime and using Workspace
+
+> When we are debugging source code, one of the most important things is to get original source code saved from the local drive after the fixed has been applied in the Code Editor.
+
+> That is the moment _`Workspace`_ came to the picture because it connects your source code with the Code Editor. This is done by adding the project source folder to the Workspace.
+> You can add as many project you want to the Workspace and to remove a project right-click to the project and select _`Remove from workspace`_.
+> **Notice**: _The source code is saved to the two side, from Workspace or from Project source code_.
+
+![Image](https://github.com/user-attachments/assets/b1403a6e-4980-434a-9445-74c223aa64e2)
 
 ## 18. Debugging with VS Code
 
+> Most of the things used with VS Code to debug the source code are the same as the Chrome DevTools, and just a few things are different.
+
 ### 19. A Few Debugging Tips
-
-## Screenshots
-
-![Image]()
-
-![Image]()
