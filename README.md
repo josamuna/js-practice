@@ -32,7 +32,7 @@ A journey to practice JavaScript concepts, ranking from beginer to advanced.
 - [x] LIVE 01: STOP Writing Bad JavaScript Code and Upgrade Your Skills Now! - [Video](https://www.youtube.com/watch?v=1XW_g3Ik3l8)
 - [x] Day 14: Error Handling in javaScript - [Video](https://youtu.be/XpMW-gxNYD8)
 - [x] Day 15: JavaScript Array Master Course - Beginner to PRO - [Video](https://youtu.be/t05NguKFKo0)
-- [ ] Day 16: JavaScript Code Debugging 101 - [Video](https://youtu.be/VInAd-GJZec)
+- [x] Day 16: JavaScript Code Debugging 101 - [Video](https://youtu.be/VInAd-GJZec)
 
 ### Module 3 - DOM and Advanced Usages
 
