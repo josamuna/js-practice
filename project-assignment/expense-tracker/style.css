@@ -1,0 +1,32 @@
+html {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 30px;
+  /* text-align: center; */
+  color: rgb(17, 2, 132);
+}
+
+p {
+  color: rgb(1, 53, 126);
+  letter-spacing: 1px;
+  line-height: 2;
+}
+
+.btn1 {
+  border-radius: 8px;
+  border-color: moccasin;
+  padding: 5px;
+  color: rgb(94, 93, 2);
+  font-size: 18px;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}

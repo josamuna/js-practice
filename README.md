@@ -33,6 +33,7 @@ A journey to practice JavaScript concepts, ranking from beginer to advanced.
 - [x] Day 14: Error Handling in javaScript - [Video](https://youtu.be/XpMW-gxNYD8)
 - [x] Day 15: JavaScript Array Master Course - Beginner to PRO - [Video](https://youtu.be/t05NguKFKo0)
 - [x] Day 16: JavaScript Code Debugging 101 - [Video](https://youtu.be/VInAd-GJZec)
+- [ ] **Project-assignment: Expense Tracker Project - End of the Module 2**
 
 ### Module 3 - DOM and Advanced Usages
 
