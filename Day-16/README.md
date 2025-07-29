@@ -223,11 +223,11 @@ const logger = function (text) {
 3. **Step Into** (`F11`): It investigates a function in a deeper way.
 4. **Step Out** (`Shift + F11`): It allows to go out of a function once you are inside it.
 5. **Restart** (`Ctrl + Shift + F5`): _`Restarts`_ the execution of the project.
-6. **Stop** (`Ctrl + F5`): Disable all the breakpoint at once.
+6. **Stop** (`Ctrl + F5`): Stop debugging.
 
 ## 19. A Few Debugging Tips
 
-> There are some tips to help developer while using debugger:
+> There are some tips to help developers while using a debugger:
 
 1. **Accept**: Accept that debugging is like being a detective in crime movies. As developers, we must accept creating bugs but also fixing them.
 2. **Bigger picture**: One component could have the chance to break something in other elements. Understand how different components work together, how modules work, and how data is exchanged before going through the debugging.
