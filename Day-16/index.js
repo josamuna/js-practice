@@ -3,7 +3,7 @@ const print = function () {
   const wish = document.getElementById('m_wish').value;
 
   const message =
-    'Hello ' + name + ', Your wish `' + +wish + '` may come true!';
+    'Hello ' + name + ', Your wish `' + wish + '` may come true!';
   logger(message);
   document.getElementById('output').innerHTML =
     '<span class="message">' + message + '</span>';
