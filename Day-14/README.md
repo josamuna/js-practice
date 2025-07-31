@@ -147,7 +147,7 @@ validateAge('url');
 
 ## 5. Rethrowing Error
 
-> _`Rethrowing`_ come to picture when error is catched in a block and, after its processing is throwned again (rethrowing) to tell the caller gets the exception back to do more with it. This help throw the error in the top level of hierarchie.
+> _`Rethrowing`_ come to picture when error is catched in a block and, after its processing is throwned again (rethrowing) to tell the caller gets the exception back to do more with it. This help throw the error in the top level of hierarchy.
 > In this scenario, when we want to show the error to the user with a proper UI, instead of showing all messages which will result of messi dialog message, we just shows the last one from the top level function and log the rest of message to the console.
 
 ```js

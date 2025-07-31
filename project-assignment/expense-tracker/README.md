@@ -4,7 +4,7 @@ You have just finished the module 2. You have learned many important concepts ti
 
 ## Project Requirements
 
-Create a simple expense tracker where user can add, remove, edit, and categorize expenses.
+Create a simple expense tracker where user can **add**, **remove**, **edit**, and **categorize expenses**.
 
 > Please Note: This will be a console-based project (no DOM), focusing only on JavaScript logic.
 
