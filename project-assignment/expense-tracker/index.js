@@ -97,7 +97,10 @@ function validateUserByName(userName) {
 //#endregion
 
 //#region APPLICATION DATA
-const user = { name: 'Josue', budget: 5000 };
+const users = [
+  { name: 'Josue', budget: 5000 },
+  { name: 'Asha', budget: 6000 },
+];
 
 const expenses = [
   { id: 1, amount: 100, category: 'Food', description: 'Lunch' },
@@ -121,6 +124,7 @@ function incrementeExpenseId() {
   }
 }
 
+// Main application function with closure.
 function createExpenseTracker() {
   return {
     addExpense: function (expense) {
@@ -242,11 +246,17 @@ function createExpenseTracker() {
     },
     getUserInfo: function (userName) {
       try {
-        if (user.name === userName) {
-          return user;
-        } else {
-          throw new Error(`The user with name ${userName} doesn't exist!`);
+        const userDetails = users.find((user) => {
+          return user.name === userName;
+        });
+
+        // If user is not found from users array, then raised an error.
+        if (!userDetails) {
+          throw new ValidationUser(
+            `The user with name '${userName}' doesn't exist!`
+          );
         }
+        return userDetails;
       } catch (error) {
         console.log(
           `getUserInfo | Get user info. => ${error.name} : ${error.message}\n${error.stack}`
@@ -266,16 +276,21 @@ function createExpenseTracker() {
     },
     updateUserData: function (newUser) {
       try {
-        if (user.name !== newUser.name) {
+        // check if the provided user name exist.
+        const currentUserIndex = users.findIndex((user) => {
+          return user.name === newUser.name;
+        });
+
+        // If the current user name doesn't exist, error is raised.
+        if (currentUserIndex === -1) {
           throw new ValidationUser(
-            `The provided user wih name '${newUser.name}' doesn't exist!`
+            `The provided user with name '${newUser.name}' doesn't exist!`
           );
         }
-
-        user.name = newUser.name;
-        user.budget = newUser.budget;
-
-        return user;
+        users.splice(currentUserIndex, 1, {
+          name: newUser.name,
+          budget: newUser.budget,
+        });
       } catch (error) {
         console.log(
           `updateUserData | Update user data => ${error.name} : ${error.message}\n${error.stack}`
@@ -442,9 +457,9 @@ try {
 try {
   const newUserData = { name: 'Josue', budget: 10000 };
   validateUser(newUserData);
-  const updatedUser = executeExpenseTracker.updateUserData(newUserData);
+  executeExpenseTracker.updateUserData(newUserData);
   console.log('User data updated successfully.');
-  console.log('Current user data after updating : ', updatedUser);
+  console.log('Current user data after updating : ', users);
 } catch (error) {
   console.log(`Failed to update user data  : ${error.message}`);
 }
