@@ -108,6 +108,15 @@ const expenses = [
   { id: 3, amount: 150, category: 'Food', description: 'Breakfast' },
 ];
 
+const userExpenses = [
+  { name: 'Josue', expenseId: 1, budget: 4900 },
+  { name: 'Josue', expenseId: 3, budget: 4750 },
+  { name: 'Asha', expenseId: 2, budget: 5800 },
+  { name: 'Josue', expenseId: 1, budget: 4800 },
+  { name: 'Asha', expenseId: 3, budget: 5650 },
+  { name: 'Josue', expenseId: 2, budget: 4600 },
+];
+
 //#endregion
 
 // Get the last ID of expenses and return an incremented value by one
@@ -185,9 +194,27 @@ function createExpenseTracker() {
         throw error;
       }
     },
+    // For this case, we are going to suppose that each user has already added expenses
+    // stored in a array.
     getTotalExpenseByUser: function (user) {
       try {
-        // TODO
+        const totalExpenseByUser = userExpenses
+          .filter((userExpense) => {
+            // Get expense by user name
+            return user.name === userExpense.name;
+          })
+          .map((expense) => {
+            // Get only expense Id from expense done by user
+            return expense.expenseId;
+          })
+          .reduce((accu, expenseId) => {
+            // Get the amount corresponding to each expense Id
+            const currentAmount = expenses.filter((expense) => {
+              return expense.id === expenseId;
+            })[0].amount;
+            return accu + currentAmount; // Return the sum of all amount corresponding to expense Id done by the user
+          }, 0);
+        return totalExpenseByUser;
       } catch (error) {
         console.log(
           `getTotalExpenseByUser | Get the total expense by user => ${error.name} : ${error.message}\n${error.stack}`
@@ -395,6 +422,26 @@ try {
 }
 
 console.log('Current expense after updating : ', expenses);
+
+// Get total expense by user
+try {
+  // Loop to find the total expense for each user
+  const userNames = ['Josue', 'Asha'];
+  userNames.forEach((userName) => {
+    validateUserByName(userName);
+    const user = executeExpenseTracker.getUserInfo(userName);
+    const totalExpenseByUser =
+      executeExpenseTracker.getTotalExpenseByUser(user);
+    console.log(
+      'The total expense by user "',
+      user.name,
+      '" is : ',
+      totalExpenseByUser
+    );
+  });
+} catch (error) {
+  console.log(`Failed to get the total expense by user : ${error.message}`);
+}
 
 // Get expenses by category
 try {
