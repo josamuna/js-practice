@@ -702,6 +702,6 @@ try {
 
 ## Screenshots
 
-![Image](https://github.com/user-attachments/assets/121e0411-3b29-4b1e-a798-c13fd4563c86)
+![Image](https://github.com/user-attachments/assets/e51a1f8c-237e-4cb7-bbd3-d7131e61875c)
 
-![Image](https://github.com/user-attachments/assets/b0ef825e-63f3-44a4-b8af-0cc2f0f7f1e3)
+![Image](https://github.com/user-attachments/assets/a0d84d1a-9018-4017-8e54-19fb764d724a)
