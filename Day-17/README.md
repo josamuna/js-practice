@@ -23,11 +23,41 @@
 
 # Keys Points of the video
 
-Array plays a great role in data structure. Array is represented as a pair of brackets `[]` and is a collection of element of any type `(boolean, number, string, object, array or function)`.
+When the browser load HTML page, each element is organized as a tree like structure called _`the DOM`_.
+
+## 1. Module 3 & DOM
+
+## 2. Expense Tracker Project
+
+> Completed and available on this link : [Expense Tracker Poject Link](https://github.com/js-practice/tree/main/project-assignment/expense-traker-project)
+
+## 3. What is DOM?
+
+## 4. DOM and JavaScript
+
+## 5. What else to Cover?
+
+## 6. DOM Types
+
+## 7. Get Element By ID
+
+## 8. Get Element By Class Name
+
+## 9. Get Element By Tag Name
+
+## 10. Query Selector
+
+## 11. Query Selector All
+
+## 12. Mini Project 1
+
+## 13. Mini Project 2
+
+## 14. Playing With DOM on DevTools
 
 # **👩‍💻 🧑‍💻 Assignment Tasks**
 
-[![day-17]](https://youtu.be/t05NguKFKo0 'Video')
+[![day-17]](https://youtu.be/F4mVSaj6uls 'Video')
 
 # Tasks
 

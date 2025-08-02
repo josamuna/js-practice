@@ -139,6 +139,6 @@ counterValue.increment(); // 1
 
 ## Screenshot
 
-![Image](https://github.com/user-attachments/assets/f0390eda-5538-4e85-a9b8-b3750aff477f)
+![Image](https://github.com/user-attachments/assets/822c9ad1-0413-419d-90fa-4b3116da5f6f)
 
-![Image](https://github.com/user-attachments/assets/f017e186-3669-4093-8c53-5d9783c0c1b8)
+![Image](https://github.com/user-attachments/assets/96c9210c-1b9b-46a8-89d0-98676a50ea80)

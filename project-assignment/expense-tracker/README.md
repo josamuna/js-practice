@@ -125,15 +125,11 @@ function validateExpense(expense) {
   }
 }
 
-// Validate user
-function validateUser(user) {
+// Validate new user by name
+function validateNewUserByName(userName) {
   // user name validation.
-  if (!user.name) {
+  if (!userName) {
     throw new ValidationUser('Empty username is not allowed!');
-  }
-  // budget validation.
-  if (isNaN(user.budget) || user.budget < 0) {
-    throw new ValidationUser('Empty or negative budget are not valids.');
   }
 }
 
@@ -143,48 +139,101 @@ function validateUserByName(userName) {
   if (!userName) {
     throw new ValidationUser('Empty username is not allowed!');
   }
+
+  // If user is not found from user, then raised an error.
+  if (!(userName === user.name)) {
+    throw new ValidationUser(`The user with name '${userName}' doesn't exist!`);
+  }
 }
 
-const users = [
-  { name: 'Josue', budget: 5000 },
-  { name: 'Asha', budget: 6000 },
-];
+// Validate user by budget
+function validateUserByBudget(userBudget) {
+  // budget validation.
+  if (isNaN(userBudget) || userBudget < 0) {
+    throw new ValidationUser('Empty or negative budget are not valids!');
+  }
+
+  if (userBudget === 0) {
+    throw new ValidationUser('The budget should be greather than zero!');
+  }
+}
+
+const user = { name: 'Josue', budget: 5000 };
 
 const expenses = [
   { id: 1, amount: 100, category: 'Food', description: 'Lunch' },
   { id: 2, amount: 200, category: 'Shopping', description: 'New shoes' },
   { id: 3, amount: 150, category: 'Food', description: 'Breakfast' },
+  { id: 4, amount: 150, category: 'Movies', description: 'The new era' },
+  { id: 5, amount: 400, category: 'Sport', description: 'Golf' },
+  {
+    id: 6,
+    amount: 50,
+    category: 'Entertainment',
+    description: 'Roller-skate',
+  },
+  { id: 7, amount: 10, category: 'Toy', description: 'Childrens cars' },
+  { id: 8, amount: 100, category: 'Tools', description: 'Gasmask' },
+  { id: 9, amount: 250, category: 'Learning', description: 'Online Course' },
+  { id: 10, amount: 300, category: 'Tech', description: '3D HD Camera' },
+  {
+    id: 11,
+    amount: 500,
+    category: 'Reading',
+    description: 'Master JavaScript',
+  },
 ];
 
-const userExpenses = [
-  { name: 'Josue', expenseId: 1, budget: 4900 },
-  { name: 'Josue', expenseId: 3, budget: 4750 },
-  { name: 'Asha', expenseId: 2, budget: 5800 },
-  { name: 'Josue', expenseId: 1, budget: 4800 },
-  { name: 'Asha', expenseId: 3, budget: 5650 },
-  { name: 'Josue', expenseId: 2, budget: 4600 },
-];
+const userExpenses = []; // { id: operationId, name: 'username', expenseId: expenseId, budget: budget }
 
-// Get the last ID of expenses and return an incremented value by one
-function incrementeExpenseId() {
+function incrementeUserExpenseId() {
   try {
-    const incrementedID = expenses.reduce((accu, expense) => {
-      return Math.max(accu, expense.id) + 1;
-    }, 0);
-    return incrementedID;
+    let incrementedId = 0;
+    // If the userExpense array is empty, we initialize the id with 1
+    if (userExpenses.length === 0) {
+      incrementedId = 1;
+    } else {
+      // Otherwise get the last Id and then add one
+      incrementedId = userExpenses.reduce((accu, userExpense) => {
+        return Math.max(accu, userExpense.id) + 1;
+      }, 0);
+    }
+    return incrementedId;
   } catch (error) {
     console.log(
-      `incrementeExpenseId | Increm expense => ${error.name} : ${error.message}\n${error.stack}`
+      `incrementeUserExpenseId | Incremente user expense Id => ${error.name} : ${error.message}\n${error.stack}`
     );
   }
 }
 
 // Main application function with closure.
-function createExpenseTracker() {
+function createExpenseTracker(userName, initialBudget) {
+  // let username = userName;
+  let userBudget = initialBudget;
+
+  // Update userBudget uses the powerfull of closure to get user budget updated.
+  user.budget = userBudget;
+
   return {
-    addExpense: function (expense) {
+    addExpense: function (username, expense) {
       try {
-        return expenses.push(expense);
+        if (expense.amount > user.budget) {
+          throw new ValidationUser(
+            `Insufficient user budget! User hold '${user.budget}' and can't spend '${expense.amount}.'`
+          );
+        }
+        const userExpense = {
+          id: incrementeUserExpenseId(),
+          username: username,
+          expenseId: expense.id,
+          amount: expense.amount,
+          category: expense.category,
+          description: expense.description,
+        };
+        // Update the user budget
+        userBudget -= expense.amount;
+        user.budget = userBudget;
+        return userExpenses.push(userExpense);
       } catch (error) {
         console.log(
           `addExpense | Adding expense => ${error.name} : ${error.message}\n${error.stack}`
@@ -192,21 +241,25 @@ function createExpenseTracker() {
         throw error;
       }
     },
-    removeExpense: function (expenseId) {
+    removeExpense: function (username, expense) {
       try {
-        // when Id is known, the array index is the Id - 1.
-        const expenseIndex = expenses.findIndex((expense) => {
-          return expense.id === expenseId;
+        const userExpenseIndex = userExpenses.findIndex((userExpense) => {
+          return (
+            expense.id === userExpense.expenseId &&
+            userExpense.username === username
+          );
         });
 
         // Once the index doesn't exist (objExpense is -1), the programm raised an error.
-        if (expenseIndex == -1) {
-          throw new ValidationExpense(
-            `The provided Id '${expenseId}' doesn't exist.`
-          );
+        if (userExpenseIndex == -1) {
+          throw new Error(`The provided expense doesn't exist!`);
         }
+        // Update user budget by adding the removed amount
+        userBudget += expense.amount;
+        user.budget = userBudget;
+
         // Remove the element at the specified index
-        expenses.splice(expenseIndex, 1);
+        userExpenses.splice(userExpenseIndex, 1);
       } catch (error) {
         console.log(
           `removeExpense | Remove expense => ${error.name} : ${error.message}\n${error.stack}`
@@ -214,21 +267,46 @@ function createExpenseTracker() {
         throw error;
       }
     },
-    updateExpense: function (expense) {
+    updateExpense: function (username, expense) {
       try {
+        let userExpenseId = -1;
         // According to the expense passed as argument, update the current one
-        const indexObjToChange = expenses.findIndex((exp) => {
-          return exp.id === expense.id;
+        const userExpenseIndex = userExpenses.findIndex((userExpense) => {
+          // Get the current user expense Id because when the  splice method will be applied, it will be lost.
+          userExpenseId = userExpense.expenseId;
+          return (
+            expense.id === userExpense.expenseId &&
+            userExpense.username === username
+          );
         });
 
-        // Once the index doesn't exist (objToChange is -1), the programm raised an error.
-        if (indexObjToChange === -1) {
-          throw new ValidationExpense(
-            `The provided Id '${expense.id}' doesn't exist.`
+        // Once the index doesn't exist (userExpenseIndex is -1), the programm raised an error.
+        if (userExpenseIndex === -1) {
+          throw new ValidationExpense(`The provided expense doesn't exist!`);
+        }
+
+        // Before updating the expense from userExpense, update the user budget
+        const amountBeforeRestoringUserBudget =
+          userExpenses.at(userExpenseIndex).amount;
+
+        // Once the updated budget becomes insufficient for the update, we raise an error
+        if (
+          user.budget + amountBeforeRestoringUserBudget - expense.amount <
+          0
+        ) {
+          throw new ValidationUser(
+            `Insufficient user budget! The new User budget '${
+              user.budget + amountBeforeRestoringUserBudget - expense.amount
+            }' can't be spent for '${expense.amount}.'`
           );
         }
-        expenses.splice(indexObjToChange, 1, {
-          id: expense.id,
+
+        // If the user budget will be sufficient then update current user budget
+        userBudget += amountBeforeRestoringUserBudget - expense.amount;
+        user.budget = userBudget;
+        userExpenses.splice(userExpenseIndex, 1, {
+          id: userExpenseId,
+          username: username,
           amount: expense.amount,
           category: expense.category,
           description: expense.description,
@@ -242,54 +320,54 @@ function createExpenseTracker() {
     },
     // For this case, we are going to suppose that each user has already added expenses
     // stored in a array.
-    getTotalExpenseByUser: function (user) {
+    getTotalExpenseByUser: function (username) {
       try {
         const totalExpenseByUser = userExpenses
           .filter((userExpense) => {
             // Get expense by user name
-            return user.name === userExpense.name;
+            return username === userExpense.username;
           })
-          .map((expense) => {
-            // Get only expense Id from expense done by user
-            return expense.expenseId;
-          })
-          .reduce((accu, expenseId) => {
-            // Get the amount corresponding to each expense Id
-            const currentAmount = expenses.filter((expense) => {
-              return expense.id === expenseId;
-            })[0].amount;
-            return accu + currentAmount; // Return the sum of all amount corresponding to expense Id done by the user
+          .map((userExpense) => {
+            // Get only expense amount from expense done by user
+            return userExpense.amount;
+          }) // Sum all user expense amount
+          .reduce((accu, currentUserExpenseAmount) => {
+            return accu + currentUserExpenseAmount;
           }, 0);
         return totalExpenseByUser;
       } catch (error) {
         console.log(
-          `getTotalExpenseByUser | Get the total expense by user => ${error.name} : ${error.message}\n${error.stack}`
+          `getTotalExpenseByUser | Get the total expenses done by the user => ${error.name} : ${error.message}\n${error.stack}`
         );
         throw error;
       }
     },
-    getExpenseByCategory: function (categoryName) {
+    getExpenseByCategory: function (username, categoryName) {
       try {
-        const expensesByCategory = expenses.filter((expense) => {
-          return expense.category === categoryName;
+        const expensesByCategory = userExpenses.filter((userExpense) => {
+          return (
+            userExpense.category === categoryName &&
+            userExpense.username === username
+          );
         });
         return expensesByCategory;
       } catch (error) {
         console.log(
-          `getExpenseByCategory | Get expenses by category => ${error.name} : ${error.message}\n${error.stack}`
+          `getExpenseByCategory | Get user expenses by category => ${error.name} : ${error.message}\n${error.stack}`
         );
         throw error;
       }
     },
-    getHighestExpense: function () {
+    getHighestExpense: function (username) {
       try {
-        const highestExpenseAmount = expenses.reduce((accu, expense) => {
-          return Math.max(accu, expense.amount);
-        }, 0);
-        const highestExpense = expenses.filter((expense) => {
-          return expense.amount === highestExpenseAmount;
-        });
-        return highestExpense;
+        const highestUserExpenseAmount = userExpenses
+          .filter((userExpense) => {
+            return userExpense.username === username;
+          })
+          .reduce((accu, userExpense) => {
+            return Math.max(accu, userExpense.amount);
+          }, 0);
+        return highestUserExpenseAmount;
       } catch (error) {
         console.log(
           `getHighestExpense | Get the highest expense => ${error.name} : ${error.message}\n${error.stack}`
@@ -297,19 +375,19 @@ function createExpenseTracker() {
         throw error;
       }
     },
-    getLowestExpense: function () {
+    getLowestExpense: function (username) {
       try {
-        const lowestExpenseAmount = expenses
-          .map((expense) => {
-            return expense.amount;
+        const lowestUserExpenseAmount = userExpenses
+          .filter((userExpense) => {
+            return userExpense.username === username;
+          })
+          .map((userExpense) => {
+            return userExpense.amount;
           })
           .sort((a, b) => {
             return a === b ? 0 : a > b ? 1 : -1;
-          })[0];
-        const lowestExpense = expenses.filter((expense) => {
-          return expense.amount === lowestExpenseAmount;
-        });
-        return lowestExpense;
+          })[0]; // The first element of the sorted ascending array is the lowest amount.
+        return lowestUserExpenseAmount;
       } catch (error) {
         console.log(
           `getLowestExpense | Get the lowest expense => ${error.name} : ${error.message}\n${error.stack}`
@@ -317,19 +395,9 @@ function createExpenseTracker() {
         throw error;
       }
     },
-    getUserInfo: function (userName) {
+    getUserInfo: function (username) {
       try {
-        const userDetails = users.find((user) => {
-          return user.name === userName;
-        });
-
-        // If user is not found from users array, then raised an error.
-        if (!userDetails) {
-          throw new ValidationUser(
-            `The user with name '${userName}' doesn't exist!`
-          );
-        }
-        return userDetails;
+        return { name: username, budget: userBudget };
       } catch (error) {
         console.log(
           `getUserInfo | Get user info. => ${error.name} : ${error.message}\n${error.stack}`
@@ -337,33 +405,24 @@ function createExpenseTracker() {
         throw error;
       }
     },
-    showAllExpenses: function () {
+    showAllExpenses: function (username) {
       try {
-        return expenses;
+        const allUserExpense = userExpenses.filter((userExpense) => {
+          return userExpense.username === username;
+        });
+        return allUserExpense;
       } catch (error) {
         console.log(
-          `showAllExpenses | Show all expenses => ${error.name} : ${error.message}\n${error.stack}`
+          `showAllExpenses | Show all user expenses => ${error.name} : ${error.message}\n${error.stack}`
         );
         throw error;
       }
     },
-    updateUserData: function (newUser) {
+    updateUserData: function (newUsername, budget) {
       try {
-        // check if the provided user name exist.
-        const currentUserIndex = users.findIndex((user) => {
-          return user.name === newUser.name;
-        });
-
-        // If the current user name doesn't exist, error is raised.
-        if (currentUserIndex === -1) {
-          throw new ValidationUser(
-            `The provided user with name '${newUser.name}' doesn't exist!`
-          );
-        }
-        users.splice(currentUserIndex, 1, {
-          name: newUser.name,
-          budget: newUser.budget,
-        });
+        user.name = newUsername;
+        user.budget = budget;
+        return user;
       } catch (error) {
         console.log(
           `updateUserData | Update user data => ${error.name} : ${error.message}\n${error.stack}`
@@ -381,147 +440,229 @@ function createExpenseTracker() {
  */
 
 // Create new instance of
-const executeExpenseTracker = createExpenseTracker();
+let executeExpenseTracker;
 
-// Add new expense
-const newExpense = [
-  {
-    amount: 150,
-    category: 'Movies',
-    description: 'The new era',
-  },
-  {
-    amount: 400,
-    category: 'Sport',
-    description: 'Golf',
-  },
-  {
-    amount: 50,
-    category: 'Entertainment',
-    description: 'Roller-skate',
-  },
-  {
-    amount: 10,
-    category: 'Toy',
-    description: 'Childrens cars',
-  },
-  {
-    amount: 100,
-    category: 'Tools',
-    description: 'Gasmask',
-  },
-  {
-    amount: 250,
-    category: 'Learning',
-    description: 'Online Course',
-  },
-  {
-    amount: 300,
-    category: 'Tech',
-    description: '3D HD Camera',
-  },
-  {
-    amount: 500,
-    category: 'Reading',
-    description: 'Master JavaScript',
-  },
-];
 try {
-  newExpense.forEach((expense) => {
-    expense['id'] = incrementeExpenseId();
-    validateExpense(expense);
-    console.log(expense);
-    executeExpenseTracker.addExpense(expense);
-    console.log('New expense added successfully.');
-  });
+  const userInitialBudget = 5000; // Budget 1300 raise error when updating
+  const username = 'Josue';
+  const expense = expenses.at(0);
+  validateUserByName(username);
+  validateExpense(expense);
+  validateUserByBudget(userInitialBudget);
+
+  executeExpenseTracker = createExpenseTracker(username, userInitialBudget);
+  console.log(
+    `Expense initialized to ${userInitialBudget} for user '${user.name}'.`
+  );
+} catch (error) {
+  console.log(`Failed to initialze expense : ${error.message}`);
+}
+
+// Add first expense for the user 100, 150, 400, 100, 250, 300 => User budget will become 3700
+try {
+  const username = 'Josue';
+  const expense = expenses.at(0);
+  validateExpense(expense);
+  validateUserByName(username);
+  executeExpenseTracker.addExpense(username, expense);
+  console.log('New expense added successfully.');
+
+  // Print current User expense
+  console.log('User expense after adding : ', userExpenses);
+  // Print current User budget
+  console.log('Current user budget : ', user.budget);
 } catch (error) {
   console.log(`Failed to add expense : ${error.message}`);
 }
-// Print current expense
-console.log('Current expense after adding : ', expenses);
 
-// Remove expense with Id 6
+// Add third expense for the user
 try {
-  const expenseId = 6;
-  executeExpenseTracker.removeExpense(expenseId);
+  const username = 'Josue';
+  const expense = expenses.at(2);
+  validateExpense(expense);
+  validateUserByName(username);
+  executeExpenseTracker.addExpense(username, expense);
+  console.log('New expense added successfully.');
+
+  // Print current User expense
+  console.log('User expense after adding : ', userExpenses);
+  // Print current User budget
+  console.log('Current user budget : ', user.budget);
+} catch (error) {
+  console.log(`Failed to add expense : ${error.message}`);
+}
+
+// Add fifth expense for the user
+try {
+  const username = 'Josue';
+  const expense = expenses.at(4);
+  validateExpense(expense);
+  validateUserByName(username);
+  executeExpenseTracker.addExpense(username, expense);
+  console.log('New expense added successfully.');
+
+  // Print current User expense
+  console.log('User expense after adding : ', userExpenses);
+  // Print current User budget
+  console.log('Current user budget : ', user.budget);
+} catch (error) {
+  console.log(`Failed to add expense : ${error.message}`);
+}
+
+// Add eighth expense for the user
+try {
+  const username = 'Josue';
+  const expense = expenses.at(7);
+  validateExpense(expense);
+  validateUserByName(username);
+  executeExpenseTracker.addExpense(username, expense);
+  console.log('New expense added successfully.');
+
+  // Print current User expense
+  console.log('User expense after adding : ', userExpenses);
+  // Print current User budget
+  console.log('Current user budget : ', user.budget);
+} catch (error) {
+  console.log(`Failed to add expense : ${error.message}`);
+}
+
+// Add nineth expense for the user
+try {
+  const username = 'Josue';
+  const expense = expenses.at(8);
+  validateExpense(expense);
+  validateUserByName(username);
+  executeExpenseTracker.addExpense(username, expense);
+  console.log('New expense added successfully.');
+
+  // Print current User expense
+  console.log('User expense after adding : ', userExpenses);
+  // Print current User budget
+  console.log('Current user budget : ', user.budget);
+} catch (error) {
+  console.log(`Failed to add expense : ${error.message}`);
+}
+
+// Add tenth expense for the user
+try {
+  const username = 'Josue';
+  const expense = expenses.at(9);
+  validateExpense(expense);
+  validateUserByName(username);
+  executeExpenseTracker.addExpense(username, expense);
+  console.log('New expense added successfully.');
+
+  // Print current User expense
+  console.log('User expense after adding : ', userExpenses);
+  // Print current User budget
+  console.log('Current user budget : ', user.budget);
+} catch (error) {
+  console.log(`Failed to add expense : ${error.message}`);
+}
+
+// Remove the fourth user expense with id 8 => { id: 8, amount: 100, category: 'Tools', description: 'Gasmask' } and new budget = 3700 + 100 = 3800
+try {
+  const username = 'Josue';
+  const expense = expenses.at(7);
+  validateExpense(expense);
+  validateUserByName(username);
+  executeExpenseTracker.removeExpense(username, expense);
   console.log('Expense removed successfully.');
+
+  // Print current User expense
+  console.log('User expense after removing : ', userExpenses);
+  // Print current User budget
+  console.log('Current user budget : ', user.budget);
 } catch (error) {
   console.log(`Failed to remove expense : ${error.message}`);
 }
-console.log('Current expense after removing : ', expenses);
 
-// Update expense on the Id 10 ({id: 2, amount: 200, category: 'Shopping', description: 'New shoes' }) with new data
+// Update expense on the Id 10 => { id: 10, amount: 300, category: 'Tech', description: '3D HD Camera' } with new data, and new budget = 3800 + 300 - 500 = 3600
 try {
-  const newObject = {
-    id: 2,
-    amount: 300,
+  const username = 'Josue';
+  const expense = {
+    id: 10,
+    amount: 500,
     category: 'Utilities',
     description: 'Electricity',
   };
-  console.log('newObject : ', newObject);
-  executeExpenseTracker.updateExpense(newObject);
+  validateExpense(expense);
+  validateUserByName(username);
+  executeExpenseTracker.updateExpense(username, expense);
   console.log('Expense updated successfully.');
+
+  // Print current User expense
+  console.log('User expense after updating : ', userExpenses);
+  // Print current User budget
+  console.log('Current user budget : ', user.budget);
 } catch (error) {
   console.log(`Failed to update expense : ${error.message}`);
 }
 
-console.log('Current expense after updating : ', expenses);
-
 // Get total expense by user
 try {
-  // Loop to find the total expense for each user
-  const userNames = ['Josue', 'Asha'];
-  userNames.forEach((userName) => {
-    validateUserByName(userName);
-    const user = executeExpenseTracker.getUserInfo(userName);
-    const totalExpenseByUser =
-      executeExpenseTracker.getTotalExpenseByUser(user);
-    console.log(
-      'The total expense by user "',
-      user.name,
-      '" is : ',
-      totalExpenseByUser
-    );
-  });
+  // 100 + 150 + 400 + 250 + 500 = 1400
+  const username = 'Josue';
+  validateUserByName(username);
+  const totalExpenseByUser =
+    executeExpenseTracker.getTotalExpenseByUser(username);
+  console.log(
+    'The total expenses done by user "',
+    username,
+    '" is : ',
+    totalExpenseByUser
+  );
 } catch (error) {
-  console.log(`Failed to get the total expense by user : ${error.message}`);
+  console.log(
+    `Failed to get the total expenses done by the user : ${error.message}`
+  );
 }
 
-// Get expenses by category
+// Get user expenses by category
 try {
+  const username = 'Josue';
   const expenseCategory = 'Food';
+  validateUserByName(username);
   validateExpenseByCategory(expenseCategory);
-  const expenseByCategory =
-    executeExpenseTracker.getExpenseByCategory(expenseCategory);
+  const expenseByCategory = executeExpenseTracker.getExpenseByCategory(
+    username,
+    expenseCategory
+  );
   console.log(
-    `The expense by category '${expenseCategory}' : `,
+    `The total user expenses done by category '${expenseCategory}' : `,
     expenseByCategory
   );
 } catch (error) {
-  console.log(`Failed to get expense by category : ${error.message}`);
+  console.log(
+    `Failed to get users expenses done by category : ${error.message}`
+  );
 }
 
 // Get highest expense
 try {
-  const highestExpense = executeExpenseTracker.getHighestExpense();
-  console.log('The highest expense : ', highestExpense);
+  const username = 'Josue';
+  validateUserByName(username);
+  const highestExpense = executeExpenseTracker.getHighestExpense(username);
+  console.log('The highest user expense : ', highestExpense);
 } catch (error) {
-  console.log(`Failed to get the highest expense  : ${error.message}`);
+  console.log(`Failed to get the highest user expense  : ${error.message}`);
 }
 
 // Get lowest expense
 try {
-  const lowestExpense = executeExpenseTracker.getLowestExpense();
-  console.log('The lowest expense : ', lowestExpense);
+  const username = 'Josue';
+  validateUserByName(username);
+  const lowestExpense = executeExpenseTracker.getLowestExpense(username);
+  console.log('The lowest user expense : ', lowestExpense);
 } catch (error) {
-  console.log(`Failed to get the lowest expense  : ${error.message}`);
+  console.log(`Failed to get the lowest suers expense  : ${error.message}`);
 }
 
 // Get user info
 try {
-  const userName = 'Josue';
-  validateUserByName(userName);
-  const userInfo = executeExpenseTracker.getUserInfo(userName);
+  const username = 'Josue';
+  validateUserByName(username);
+  const userInfo = executeExpenseTracker.getUserInfo(username);
   console.log(
     'The user info : \nName: ',
     userInfo.name,
@@ -532,25 +673,28 @@ try {
   console.log(`Failed to get the user info  : ${error.message}`);
 }
 
-// Show all expenses
+// Show all user expenses
 try {
-  console.log('Show all epenses : ');
-  executeExpenseTracker.showAllExpenses().forEach((expense) => {
+  const username = 'Josue';
+  validateUserByName(username);
+  console.log(`Show all epenses done by the user '${username}' : `);
+  executeExpenseTracker.showAllExpenses(username).forEach((userExpense) => {
     console.log(
-      `Id: ${expense.id}, Amount: ${expense.amount}, Category: ${expense.category}, Decription: ${expense.description}`
+      `Id: ${userExpense.id}, Expense_Id: ${userExpense.expenseId}, Amount: ${userExpense.amount}, Category: ${userExpense.category}, Decription: ${userExpense.description}`
     );
   });
 } catch (error) {
-  console.log(`Failed to get the lowest expense  : ${error.message}`);
+  console.log(`Failed to get all user expenses  : ${error.message}`);
 }
 
 // Update user data
 try {
-  const newUserData = { name: 'Josue', budget: 10000 };
-  validateUser(newUserData);
-  executeExpenseTracker.updateUserData(newUserData);
+  const newUserData = { name: 'Tapas', budget: 10000 };
+  validateNewUserByName(newUserData.name);
+  validateUserByBudget(newUserData.budget);
+  executeExpenseTracker.updateUserData(newUserData.name, newUserData.budget);
   console.log('User data updated successfully.');
-  console.log('Current user data after updating : ', users);
+  console.log('Current user data after updating : ', user);
 } catch (error) {
   console.log(`Failed to update user data  : ${error.message}`);
 }
