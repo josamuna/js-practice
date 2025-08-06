@@ -25,7 +25,7 @@
 
 ## 1. Expense Tracker Project
 
-> Completed and available on this link : [Expense Tracker Poject Link](https://github.com/js-practice/tree/main/project-assignment/expense-traker-project)
+> Completed and available on this link : [Expense Tracker Poject Link](https://github.com/josamuna/js-practice/tree/main/project-assignment/expense-tracker)
 
 ## 2. What is DOM?
 
