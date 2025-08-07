@@ -282,7 +282,20 @@ Hints:
   <body>
     <h1 id="heading">Day 17 Task of 40 days of JavaScript</h1>
     <div id="text">This is a test. This test is only a test.</div>
-    <div id="showText"></div>
+    <div id="showText">
+      <a href="https://www.microsoft.com" alt="Microsoft access">Microsoft account</a>
+    </div>
+
+    <input
+      type="text"
+      onkeyup="findOcurrence()"
+      placeholder="Search..."
+      id="txtSearch"
+    />
+    <input type="text" id="txtReplace" value="Tapas" />
+    <button id="btnReplace" class="btn2" onclick="ReplaceOccurence()">
+      Replace
+    </button>
 
     <ul id="cars">
       <li>BMW</li>
@@ -299,6 +312,20 @@ Hints:
     <p id="40-days-js">Enjoy the 40 days of JavaScript.</p>
     <p id="capital" class="course">NEW COURSE WITH <em>TAPASCRIPT</em>.</p>
     <p class="course">Last course session with Tapas.</p>
+
+
+
+    <ul id="userLink">
+      <li><a href="https://www.github.com/josamuna" alt="GitHub repository">My GitHub Project</a></li>
+      <li><a href="https://www.google.cd" alt="Google access">Google account</a></li>
+      <li><a href="https://www.github.com/josamuna" alt="GitHub repository">My GitHub Project</a></li>
+      <li><a href="https://nodejs.com" alt="Node JS">NodeJS</a></li>
+      <li><a href="https://www.vscode.com" alt="Visual Studio Code">Visual studio code</a></li>
+      <li><a href="https://www.github.com/josamuna" alt="GitHub repository">My GitHub Project</a></li>
+      <li><a href="https://nodejs.com" alt="Node JS">NodeJS</li>
+    </ul>
+
+    <div id="printLink"></div>
   </body>
   <script defer src="./index.js"></script>
 </html>
@@ -416,12 +443,63 @@ allParaEl.forEach((element) => {
 
 Write a script that finds all occurrences of a word inside a `<p>` tag and replaces them with another word dynamically.
 
+```js
+// Find word occurrence by highliht the word.
+function findOcurrence() {
+  // Get input value.
+  const inputValue = document.querySelector('#txtSearch').value;
+  // Select all paragraps.
+  const paraElm = document.querySelectorAll('p');
+  paraElm.forEach((element) => {
+    // Look for value that match the input string.
+    const regexValue = new RegExp(inputValue, 'gi');
+    // When matchs highliht the text in red.
+    element.innerHTML = element.innerText.replace(regexValue, '<em>$&</em>');
+  });
+}
+
+// Replace the searched word with another from an input text.
+function ReplaceOccurence() {
+  const textToReplace = document.querySelector('#txtReplace').value;
+  if (textToReplace) {
+    const inputValue = document.querySelector('#txtSearch').value;
+    const allParaElm = document.querySelectorAll('p');
+    allParaElm.forEach((element) => {
+      element.innerText = element.innerText.replace(inputValue, textToReplace);
+    });
+  }
+}
+```
+
 ## 5. Extract and Count Unique Links from a Page
 
 Count all the unique hyperlinks (`<a>`) in a page and display their count.
 
-## Screenshots
+```js
+// Get all unique hyperlink
+const linkElm = document.querySelectorAll('a');
 
-![Image]()
+const arrElm = [];
+// Convert NodeList to an array that contans all href properties.
+linkElm.forEach((element) => {
+  arrElm.push(element.getAttribute('href'));
+});
 
-![Image]()
+// Reduce the array to return an Object with link and count number
+const uniqueObj = arrElm.reduce((accu, element) => {
+  accu[element] = (accu[element] || 0) + 1;
+  return accu;
+}, {});
+
+const divPrintLinkElm = document.querySelector('#printLink');
+let textLink = '';
+// Formatte the string to be set to a div
+Object.keys(uniqueObj).forEach((key) => {
+  textLink += key + ' is repeated ' + uniqueObj[key] + ' times; \n';
+});
+divPrintLinkElm.innerText = textLink;
+```
+
+## Screenshot
+
+![Image](https://github.com/user-attachments/assets/f316943b-609f-4932-bf7a-e864c6edad97)

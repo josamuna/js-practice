@@ -9,7 +9,20 @@
   <body>
     <h1 id="heading">Day 17 Task of 40 days of JavaScript</h1>
     <div id="text">This is a test. This test is only a test.</div>
-    <div id="showText"></div>
+    <div id="showText">
+      <a href="https://www.microsoft.com" alt="Microsoft access">Microsoft account</a>
+    </div>
+
+    <input
+      type="text"
+      onkeyup="findOcurrence()"
+      placeholder="Search..."
+      id="txtSearch"
+    />
+    <input type="text" id="txtReplace" value="Tapas" />
+    <button id="btnReplace" class="btn2" onclick="ReplaceOccurence()">
+      Replace
+    </button>
 
     <ul id="cars">
       <li>BMW</li>
@@ -26,6 +39,20 @@
     <p id="40-days-js">Enjoy the 40 days of JavaScript.</p>
     <p id="capital" class="course">NEW COURSE WITH <em>TAPASCRIPT</em>.</p>
     <p class="course">Last course session with Tapas.</p>
+
+    
+    
+    <ul id="userLink">
+      <li><a href="https://www.github.com/josamuna" alt="GitHub repository">My GitHub Project</a></li>
+      <li><a href="https://www.google.cd" alt="Google access">Google account</a></li>
+      <li><a href="https://www.github.com/josamuna" alt="GitHub repository">My GitHub Project</a></li>
+      <li><a href="https://nodejs.com" alt="Node JS">NodeJS</a></li>
+      <li><a href="https://www.vscode.com" alt="Visual Studio Code">Visual studio code</a></li>
+      <li><a href="https://www.github.com/josamuna" alt="GitHub repository">My GitHub Project</a></li>
+      <li><a href="https://nodejs.com" alt="Node JS">NodeJS</li>
+    </ul>
+
+    <div id="printLink"></div>
   </body>
   <script defer src="./index.js"></script>
 </html>

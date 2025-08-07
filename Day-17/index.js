@@ -121,8 +121,57 @@ allParaEl.forEach((element) => {
   Write a script that finds all occurrences of a word inside a `<p>` tag and replaces them with another word dynamically.
 */
 
+// Find word occurrence by highliht the word.
+function findOcurrence() {
+  // Get input value.
+  const inputValue = document.querySelector('#txtSearch').value;
+  // Select all paragraps.
+  const paraElm = document.querySelectorAll('p');
+  paraElm.forEach((element) => {
+    // Look for value that match the input string.
+    const regexValue = new RegExp(inputValue, 'gi');
+    // When matchs highliht the text in red.
+    element.innerHTML = element.innerText.replace(regexValue, '<em>$&</em>');
+  });
+}
+
+// Replace the searched word with another from an input text.
+function ReplaceOccurence() {
+  const textToReplace = document.querySelector('#txtReplace').value;
+  if (textToReplace) {
+    const inputValue = document.querySelector('#txtSearch').value;
+    const allParaElm = document.querySelectorAll('p');
+    allParaElm.forEach((element) => {
+      element.innerText = element.innerText.replace(inputValue, textToReplace);
+    });
+  }
+}
+
 /*
   5. Extract and Count Unique Links from a Page
 
   Count all the unique hyperlinks (`<a>`) in a page and display their count.
 */
+
+// Get all unique hyperlink
+const linkElm = document.querySelectorAll('a');
+
+const arrElm = [];
+// Convert NodeList to an array that contans all href properties.
+linkElm.forEach((element) => {
+  arrElm.push(element.getAttribute('href'));
+});
+
+// Reduce the array to return an Object with link and count number
+const uniqueObj = arrElm.reduce((accu, element) => {
+  accu[element] = (accu[element] || 0) + 1;
+  return accu;
+}, {});
+
+const divPrintLinkElm = document.querySelector('#printLink');
+let textLink = '';
+// Formatte the string to be set to a div
+Object.keys(uniqueObj).forEach((key) => {
+  textLink += key + ' is repeated ' + uniqueObj[key] + ' times; \n';
+});
+divPrintLinkElm.innerText = textLink;

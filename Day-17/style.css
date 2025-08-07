@@ -23,6 +23,16 @@ p {
   font-size: 18px;
 }
 
+.btn2 {
+  border-radius: 0.8rem;
+  border-color: rgb(34, 102, 221);
+  padding: 0.3rem;
+  color: white;
+  background-color: rgb(34, 102, 221);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 .roboto {
   font-family: 'Roboto', sans-serif;
   font-optical-sizing: auto;
@@ -33,4 +43,26 @@ p {
 
 ul > li {
   list-style: none;
+}
+
+#txtSearch,
+#txtReplace {
+  margin-top: 1.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.3rem;
+}
+
+em {
+  background: crimson;
+}
+
+a {
+  text-decoration: none;
+}
+#ul > li {
+  margin: 30px;
+}
+
+a:hover {
+  background-color: darkgrey;
 }
