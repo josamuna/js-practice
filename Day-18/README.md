@@ -41,9 +41,9 @@ document.body.appendChild(pElem);
 
 ## 2. Inserting Elements
 
-> While creating an Element helps to attach it to the DOM hierarchi, but _`inserting an Elelemnt`_ give more dynamically nature behavior. `For exemple add an Element before or after a specif paragraph`. This could be done with _`document.body.insertBefore(span, pElem)`_ or _`document.body.insertBefore(span, pElem.nextElementSibling)`_ to simulate inserting after (Means before the next subling of the Element). The body (or the direct parent of the node to add before or after) should be invoked to access the parent of current node, otherwirse an error will be raise like thath: _Uncaught NotFoundError: Failed to execute 'insertBefore' on 'Node': The node before which the new node is to be inserted is not a child of this node_.
+> While creating an Element helps to attach it to the DOM hierarchy, but _`inserting an Elelemnt`_ gives more dynamically natured behavior. `For exemple add an Element before or after a specific paragraph`. This could be done with _`document.body.insertBefore(span, pElem)`_ or _`document.body.insertBefore(span, pElem.nextElementSibling)`_ to simulate inserting after (meaning before the next sibling of the Element). The body (or the direct parent of the node to add before or after) should be invoked to access the parent of the current node, otherwirse, an error will be raised like that: _Uncaught NotFoundError: Failed to execute 'insertBefore' on 'Node': The node before which the new node is to be inserted is not a child of this node_.
 
-nextSibling Element is the next node of another. It can be accessed with the property _`nextElementSibling`_ of an Node Element.
+nextSibling Element is the next node of another. It can be accessed with the property _`nextElementSibling`_ of a Node Element.
 
 ```js
 // Adding span before a paragraph.
@@ -83,10 +83,11 @@ document.body.insertBefore(span, null);
 
 ## 3. Modifying Content
 
-> To modify content, three properties can be used _`innerText`_, _`innerHTML`_ or _`textContent`_. The difference between them is that when using innerHTML we can pass **a complete markup** but innerText just use **a plain text**. The big issue of innerHTML is `the potential security breach` that can be involved when used in an improper way, mainly the **XSS** (Cross site scripting attack, when a attacher inject a malicious script or string in your application). A possible scenario an be on a form which accept user input and input field is used to get back user feedback, and an attacker can add malicious code inside this input field and may get executing somewhere.
+> To modify content, three properties can be used: _`innerText`_, _`innerHTML`_, or _`textContent`_. The difference between them is that when using innerHTML, we can pass **a complete markup** but innerText just use ** plain text**. The big issue of innerHTML is `the potential security breach` that it can be involved when used in an improper way, mainly the **XSS** (Cross site scripting attack, when an attacker injects a malicious script or string in your application). A possible scenario can be on a form that accepts user input, and an input field is used to get back user feedback, and an attacker can add malicious code inside this input field and may get it executing somewhere.
+
 > The difference between innerText and textContent is that **innerText has not the CSS visibility but textContent consider it**.
 
-**Notice**: Avoid using innerHTML, instead use library like _DOMPurify_.
+**Notice**: Avoid using innerHTML; instead, use library like [_DOMPurify_]("https://www.npmjs.com/package/dompurify").
 
 ```js
 // innerText
@@ -98,7 +99,7 @@ const pElem = document.querySelector('p');
 pElem.innerHTML = '<u>Hello</u>';
 ```
 
-**innerText and textCont**
+**innerText and textContent**
 
 ```html
 <div>
@@ -114,7 +115,7 @@ console.log('textContent: ', divElm.textContent); // Print Test because has the 
 
 ## 4. Removing Elements
 
-> The _`remove()`_ method allows to remove element by traversing the DOM. The same result can also be archieved by using _`removeChild(item)`_ method. The _`replaceChildren()`_ method can also be used with a bunch of argument. This method can add a lot of Element at the same time, just separate them by comma.
+> The _`remove()`_ method allows you to remove an element by traversing the DOM. The same result can also be achieved by using the _`removeChild(item)`_ method. The _`replaceChildren()`_ method can also be used with a bunch of arguments. This method can add a lot of Element at the same time; just separate them by commas.
 
 ```html
 <ul id="myList">
@@ -135,7 +136,7 @@ firstItemToRemove.remove();
 // Remove an element directly
 document.getElementById('myDiv').remove();
 
-// Remove li by using innerText or textCont
+// Remove li by using innerText or textContent
 list.innerText = ''; // Not working somethime like I
 list.textContent = '';
 ```
@@ -158,7 +159,7 @@ list.replaceChildren(pElem);
 
 ## 5. Read, Write and Remove Attributes
 
-> We can read properties using the _`getAttribute()`_ method. To write an attribute, we use _`setAttribute('attributeName', 'attributeValue')`_ method. To remove an attribute, we just use the _`removeAttribute('attributeName')`_. The method _`hasAttribute('attributeName')`_ allows to check whether an element has or not the specified attribute. This method return **true** or **false** once the attribute exist or not.
+> We can read properties using the _`getAttribute()`_ method. To write an attribute, we use the _`setAttribute('attributeName', 'attributeValue')`_ method. To remove an attribute, we use the _`removeAttribute('attributeName')`_. The method _`hasAttribute('attributeName')`_ allows you to check whether an element has or does not have the specified attribute. This method returns **true** or **false** once the attribute exists or not.
 
 ```html
 <img src="image" alt="A Cat" />
@@ -178,7 +179,7 @@ console.log(imgElem.getAttribute('alt'));
 ```js
 // Add attribute.
 const linkElem = document.querySelector('a');
-linkElem.setAttribute('href', 'https://google.com');
+linkElem.setAttribute('href', 'https://www.google.com');
 console.log(linkElem.getAttribute('href'));
 ```
 
@@ -189,7 +190,7 @@ console.log(linkElem.getAttribute('href')); // null
 ```
 
 ```js
-console.log(linkElem.hasAttribute('href')); // true if the attribute exist, otherwise false.
+console.log(linkElem.hasAttribute('href')); // true if the attribute exists, otherwise false.
 console.log(linkElem.hasAttribute('img')); // false
 ```
 
