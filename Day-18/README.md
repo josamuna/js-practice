@@ -15,7 +15,7 @@
 - ✅ Travarsing DOM
 - ✅ Manipulating Styles
 - ✅ Manipulating Classes
-- ✅ Working with classLIst
+- ✅ Working with classList
 - ✅ Controlling Visibility
 - ✅ Project 1 - Toggle Me
 - ✅ Project 2 - Task Manager
@@ -221,17 +221,13 @@ console.log(linkElem.hasAttribute('img')); // false
 
 ## 6. Traversing / Navigating DOM
 
-> Traversing or navigating DOM means **Navigating through the DOM hierarchy**. This can be achieved by using a lot of methods or properties. First with properties _`parentElement`_ and _`parentNode`_. parentElement can be used recursively by adding a dot to retreive the parent of a parent element. These properties can be used interchangeably.
-
-> Second with properties for children element, _`children`_ (return an _HTMLCollection_ which is an array like: It get only element and not all nodes) and _`childNodes`_ (return a **NodeList** and all nodes: text, li, etc.). Comments are also considered as node. Most of the time, children is used to get only element.
-
-> _`firstChild`_, _`firstElementChild`_, _`lastChild`_ and _`lastElementChild`_ properties can be used to get the corresponding Element everything (including Nodes and Elements) of a specific node as their names suggest.
-
-> _`nextSibling`_ and _`nextElementSibling`_ work the same as previous properties, but for subling (Nodes or Element).
+Traversing or navigating DOM means **Navigating through the DOM hierarchy**. This can be achieved by using a lot of methods or properties.
 
 **Notice**: Element are which maps with HTML Element.
 
 ### 6.1. parentElement and parentNode
+
+> By using the properties _`parentElement`_ and _`parentNode`_. **parentElement** can be used recursively by adding a dot to retreive the parent of a parent element. **These properties can be used interchangeably**.
 
 HTML
 
@@ -261,13 +257,50 @@ console.log(
 );
 console.log('Parent Node of Parent Node', spanElem.parentNode.parentNode);
 console.log('Parent Node of Parent Element', spanElem.parentNode.parentElement);
+```
 
+### 6.2. children and childNodes
+
+> Second with properties for children element, _`children`_ (return an _HTMLCollection_ which is an array like: It get only element and not all nodes) and _`childNodes`_ (return a **NodeList** and all nodes: text, li, etc.). **Node** means _everything get attached to the DOM_ (HTML Tag, text and everything) and **Element** _represents HTML Element_ (HTML Tag). Comments are also considered as node. Most of the time, children is used to get only element.
+
+HTML
+
+```html
+<div id="main-id">
+  <p class="info">
+    <span id="text">I love DOM</span>
+  </p>
+  <!-- This is a comment -->
+</div>
+```
+
+JS
+
+```js
 //children and childNodes
 const mainElement = document.getElementById('main-id');
 console.log('Children : ', mainElement.children);
 console.log('Child Nodes : ', mainElement.childNodes);
+```
 
-// fistChild, lastChild, firstElementChild and lastElementchild.
+### 6.3. fistChild, lastChild, firstElementChild and lastElementchild
+
+> _`firstChild`_ and _`lastChild`_ properties are used to get the corresponding Nodes (everthing). _`firstElementChild`_, and _`lastElementChild`_ properties are used to get the corresponding Element (only HTML Elements).
+
+HTML
+
+```html
+<div id="main-id">
+  <p class="info">
+    <span id="text">I love DOM</span>
+  </p>
+  <!-- This is a comment -->
+</div>
+```
+
+JS
+
+```js
 const mainElement = document.getElementById('main-id');
 console.log('First Child : ', mainElement.firstChild);
 console.log('First Element Child : ', mainElement.firstElementChild);
@@ -275,6 +308,10 @@ console.log('First Element Child : ', mainElement.firstElementChild);
 console.log('Last Child : ', mainElement.lastChild);
 console.log('Last Element Child : ', mainElement.lastElementChild);
 ```
+
+### 6.4. nextSibling, nextElementSibling, previousSibling, previousElementSibling
+
+> _`nextSibling`_, _`previousSibling`_, _`nextElementSibling`_ and _`previousElementSibling`_ properties work the same as previous properties, but for subling (Nodes or Element).
 
 HTML
 
@@ -289,7 +326,6 @@ HTML
 JS
 
 ```js
-// nextSibling, nextElementSibling, previousSibling, previousElementSibling.
 const mainDivTraversing = document.getElementById('div-traversing');
 
 console.log('Next Sibling : ', mainDivTraversing.nextSibling);
@@ -316,7 +352,9 @@ console.log('Next Element Sibling of p2 : ', p2.nextElementSibling); // null. El
 
 ## 7. Manipulating Styles
 
-> Each HTML Element has an attribute called "style," which can be used to style it using inline style.
+> Each HTML Element has an attribute called "style," which can be used to style it using inline style. As the CSS properties use hyphen, in JS Code the Camel Case is used because to avoid getting errors.
+
+Styling in HTML directly
 
 ```html
 <h2 style="background-color: green; color: white;">Something</h2>
@@ -339,15 +377,19 @@ pElem.style.color = 'white';
 
 ## 8. Manipulating Classes
 
-> As the way we are manipulating HTML id, HTML class can also be manipulated. Class can be changed dynamically with the property _`className`_ (read and set). The use of this property is not a flexible choice when a lot of classes are used.
+### 8.1. The className property
 
-> That is the case _`classList`_ comes to picture. the main purpose of classlist is to help to **add** or **remove** class dynamically.
+> As the way we are manipulating HTML id, HTML class can also be manipulated. Class can be changed dynamically with the property _`className`_ (read and set). The use of this property is not a flexible choice when a lot of classes are used. That is the case _`classList`_ comes to picture.
+
+HTML
 
 ```html
 <div id="main-id" class="main-class">
   <p id="p-id">I love DOM</p>
 </div>
 ```
+
+CSS
 
 ```css
 .main-class {
@@ -367,33 +409,139 @@ pElem.style.color = 'white';
 }
 ```
 
+JS
+
 ```js
 const mainDivElem = document.getElementById('main-id');
 mainDivElem.className = 'secondary-class';
 console.log(mainDivElem.className);
 ```
 
-## 9. Controlling Visibilities
+### 8.2. The classList property
+
+> the main purpose of classlist is to help to **add** or **remove** classes dynamically. It is also help doing conditional checking to know if a specific class is added or not. The classList proerty returns a _`DOMTokenList`_ type as a data structure.
+
+HTML
+
+```html
+<div id="main-id" class="main-class layout">
+  <p id="p-id">I love DOM</p>
+</div>
+```
+
+> This property allows to access a bunch of methods or properties. For example:
+
+1. _`add`_: Add a new class.
 
 ```js
+const mainDivElem = document.getElementById('main-id');
+mainDivElem.classList.add('test');
+```
 
+2. _`remove`_: Remove a class.
+
+```js
+const mainDivElem = document.getElementById('main-id');
+mainDivElem.classList.remove('layout');
+```
+
+3. _`replace`_: Changes a class with another.
+
+```js
+const mainDivElem = document.getElementById('main-id');
+mainDivElem.classList.replace('main-class', 'secondary-class');
+```
+
+4. _`contains`_: Check whether an Element contains the specified calss passed as argument.
+
+```js
+const mainDivElem = document.getElementById('main-id');
+console.log('Does it have test? ', mainDivElem.classList.contains('test')); // flase
+console.log(
+  'Does it have secondary-class? ',
+  mainDivElem.classList.contains('secondary-class')
+); // true
+```
+
+5. _`toggle`_: It first internally checked if the class is added or not. If it is added, it removes it, and if is not added, it add it. So, reduce the number of needed code to write.
+
+```js
+const mainDivElem = document.getElementById('main-id');
+mainDivElem.classList.toggle('test'); // test class will be added because it is not there.
+mainDivElem.classList.toggle('test'); // test class is there, then removes it.
+```
+
+6. _`entries`_: Returns all the classes in form of keys-values pairs as array iterator and to be able to work with each class.
+
+```js
+const mainDivElem = document.getElementById('main-id');
+for (let [key, value] of mainDivElem.classList.entries()) {
+  console.log(key, value); // 0 'main-class' then 01 'layout'
+}
+```
+
+7. _`values`_: Returns only all the classes as array iterator and to be able to work with each class.
+
+```js
+const mainDivElem = document.getElementById('main-id');
+for (let value of mainDivElem.classList.entries()) {
+  console.log(value); // main-class then layout
+}
+```
+
+8. _`values`_: Returns only all the classes key as array iterator and to be able to work with each class key.
+
+```js
+const mainDivElem = document.getElementById('main-id');
+for (let key of mainDivElem.classList.keys()) {
+  console.log(key); // o then 1
+}
+```
+
+## 9. Controlling Visibilities
+
+> Visibility can be controlled dynamically with JS by using some properties. _`display`_ (mainlly accepts values **none**, **inline** or **block** but remains using the space on the web page even if Element has value **none** to be hidden), _`visibility`_ (mainlly accepts values hidden but doesn't use more space on the web page when has value **hidden**) and _`opacity`_(gets value between **0** to **1**). opacity with value **'0'** also occupyied the space even if the element is not visible as display with value **'none'**.
+
+HTML
+
+```html
+<div id="main-id" class="main-class layout">
+  <p id="p-id">I love DOM</p>
+</div>
+```
+
+JS
+
+```js
+const mainDivElem = document.getElementById('main-id');
+mainDivElem.style.display = 'block'; // none, inline or block
+```
+
+```js
+const mainDivElem = document.getElementById('main-id');
+mainDivElem.style.visibility = 'hidden';
+```
+
+```js
+const mainDivElem = document.getElementById('main-id');
+mainDivElem.style.opacity = '0.2';
 ```
 
 ## 10. Build Project(s)
 
-### 10.1. Project 1
+### 10.1. Project 1 - Toggle Paragraph Example
 
-```js
+The project code is under project folder, precisely [./Day-18/projects/toggle/ui.html](#) folder.
 
-```
+![Image](https://github.com/user-attachments/assets/0aada338-9b1c-4b89-983e-434480d111d7)
 
-### 10.2. Project 2
+### 10.2. Project 2 - Task Manager
 
-```js
+The project code is inside project folder, precisely [./Day-18/projects/todo/ui.html](#) folder.
 
-```
+![Image](https://github.com/user-attachments/assets/801daa0e-3907-4ee6-8ef7-e0efb7ecf5b2)
 
-### 10.3. Project 3
+![Image](https://github.com/user-attachments/assets/5737b8ae-e79c-4468-8515-125e9caeb0dc)
 
 ```js
 
@@ -415,6 +563,167 @@ Please complete the following tasks and post them on the tapaScript Discord unde
 - Add a submit button that logs all the input values as an object.
 - Add a reset button that clears the form.
 - Use createElement, appendChild, setAttribute, and addEventListener.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./ui.css" />
+    <title>Day 18 Task</title>
+  </head>
+  <body>
+    <h1 id="header">Day 18 Task of 40 days of JavaScript</h1>
+  </body>
+  <script defer src="./index.js"></script>
+</html>
+```
+
+```css
+body {
+  background-color: #e7e8ef;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+.btn {
+  font-size: large;
+  color: white;
+  border-color: rgb(71, 71, 243);
+  background-color: rgb(3, 93, 247);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.input {
+  font-size: large;
+  padding: 10px 20px;
+  margin: 5px;
+  border-style: none;
+  border-radius: 5px;
+}
+
+.inputError {
+  border-color: red;
+  border-style: solid;
+}
+```
+
+```js
+'use strict';
+console.log('Day 18 Task of 40 days of JavaScript.');
+
+/*
+  1. Create a form dynamically using JavaScript and manipulate its behavior
+
+  - Add input fields dynamically based on user selection e.g., text, email, number
+  - Add a submit button that logs all the input values as an object.
+  - Add a reset button that clears the form.
+  - Use createElement, appendChild, setAttribute, and addEventListener.
+ */
+
+const text = document.createElement('input');
+text.setAttribute('id', 'text');
+text.setAttribute('type', 'text');
+text.setAttribute('placeholder', 'Add a text');
+text.classList.add('input');
+
+const email = document.createElement('input');
+email.setAttribute('id', 'email');
+email.setAttribute('type', 'email');
+email.setAttribute('placeholder', 'youremail@example.com');
+email.setAttribute('autocomplete', 'true');
+email.classList.add('input');
+
+const number = document.createElement('input');
+number.setAttribute('id', 'number');
+number.setAttribute('type', 'number');
+number.setAttribute('placeholder', 'Provide a number');
+number.classList.add('input');
+
+const submitBtn = document.createElement('button');
+submitBtn.setAttribute('id', 'submit');
+submitBtn.setAttribute('type', 'submit');
+submitBtn.innerText = 'Submit';
+submitBtn.classList.add('btn');
+
+const resetBtn = document.createElement('button');
+resetBtn.setAttribute('id', 'reset');
+resetBtn.setAttribute('type', 'reset');
+resetBtn.innerText = 'Reset';
+resetBtn.classList.add('btn');
+
+// Append Element on the body
+document.body.appendChild(text);
+document.body.appendChild(email);
+document.body.appendChild(number);
+
+document.body.appendChild(submitBtn);
+document.body.appendChild(resetBtn);
+
+// Set text focus
+text.focus();
+
+// Get field reference
+const textInput = document.querySelector('#text');
+const emailInput = document.querySelector('#email');
+const numberInput = document.querySelector('#number');
+
+// Handle submit action
+submitBtn.addEventListener('click', function () {
+  if (!textInput.value) {
+    textInput.classList.add('inputError');
+    return false;
+  } else {
+    textInput.classList.remove('inputError');
+  }
+
+  if (!emailInput.value) {
+    emailInput.classList.add('inputError');
+    return false;
+  } else {
+    emailInput.classList.remove('inputError');
+  }
+
+  if (!numberInput.value) {
+    numberInput.classList.add('inputError');
+    return false;
+  } else {
+    numberInput.classList.remove('inputError');
+  }
+  const objData = {
+    text: textInput.value,
+    email: emailInput.value,
+    number: numberInput.value,
+  };
+  // Print object values
+  console.log(objData);
+});
+
+// Handle reset action
+resetBtn.addEventListener('click', function () {
+  textInput.value = '';
+  emailInput.value = '';
+  numberInput.value = '';
+  textInput.focus();
+});
+```
+
+## Screenshots for Task 1
+
+![Image](https://github.com/user-attachments/assets/d4a63795-eab2-4541-8d76-b8248ece0274)
+
+![Image](https://github.com/user-attachments/assets/a36c9555-5ce7-443b-89fa-82bd6e8e50ff)
 
 ## 2. Add, delete, and search rows in a dynamic table
 

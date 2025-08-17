@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO</title>
+    <link rel="stylesheet" href="./ui.css" />
+  </head>
+
+  <body>
+    <div id="errorText" class="hidden"></div>
+    <h2>Task Manager</h2>
+
+    <input type="text" id="taskInput" placeholder="New Task" />
+    <button id="addTask" onclick="addTask()" class="btn">Add Task</button>
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search Tasks..."
+      onkeyup="filterTasks()"
+    />
+    <ul id="taskList"></ul>
+  </body>
+  <script defer src="./logic.js"></script>
+</html>

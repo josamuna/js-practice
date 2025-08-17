@@ -1,0 +1,64 @@
+body {
+  background-color: #d5d9fc;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid rgb(179, 179, 243);
+  font-size: larger;
+  color: rgb(0, 57, 156);
+}
+
+li.completed {
+  text-decoration: line-through;
+}
+
+.errorMessage {
+  border-radius: 5px;
+  background-color: #f0cdcd;
+  border: 1px solid red;
+  margin: 2px;
+  padding: 10px 20px;
+  font-size: large;
+  color: red;
+  display: block;
+}
+
+.btn {
+  font-size: large;
+  color: white;
+  border-color: rgb(71, 71, 243);
+  background-color: rgb(3, 93, 247);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.innerBtn {
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input {
+  font-size: large;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border-color: rgb(71, 71, 243);
+}
+
+h2 {
+  font-size: xx-large;
+  color: rgb(0, 57, 156);
+}
