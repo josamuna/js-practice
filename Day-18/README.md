@@ -732,6 +732,10 @@ resetBtn.addEventListener('click', function () {
 - Add a search input that filters the rows by name.
 - Use insertRow, deleteRow, and textContent/innerText.
 
+![Image](https://github.com/user-attachments/assets/34eb908f-04b2-4a9a-8830-0e28720507d0)
+
+![Image](https://github.com/user-attachments/assets/75fafc62-3972-44f4-bc7a-65c76e58e6d5)
+
 ## 3. Theme Switcher with Persistence
 
 - Toggle theme using a button or switch.

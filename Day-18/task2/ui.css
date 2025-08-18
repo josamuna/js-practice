@@ -1,6 +1,8 @@
 body {
-  background-color: #e7e8ef;
+  background-color: #d6d7de;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 .roboto {
@@ -30,7 +32,46 @@ body {
   border-radius: 5px;
 }
 
+.innerBtn {
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .inputError {
   border-color: red;
   border-style: solid;
+}
+
+.tableStyle {
+  width: 75%;
+  border-collapse: collapse;
+  margin: 5px;
+}
+
+#table th {
+  background-color: #6a6a6e; /* #7c7c81 */
+  padding: 10px;
+  color: white;
+  text-align: left;
+  font-size: 18px;
+}
+
+#table td {
+  padding: 5px;
+}
+
+#table td {
+  border-bottom: 1px solid rgb(73, 73, 67);
+  color: rgb(73, 73, 67);
+}
+
+#table tr:nth-child(even) {
+  background-color: #c6c6cd;
+}
+
+h1 {
+  margin: 20px;
+  color: rgb(73, 73, 67);
 }

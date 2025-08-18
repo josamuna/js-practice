@@ -26,37 +26,42 @@ personName.setAttribute('id', 'name');
 personName.setAttribute('type', 'text');
 personName.setAttribute('placeholder', "Person's name");
 personName.setAttribute('autocomplete', 'true');
+personName.classList.add('input');
 form.appendChild(personName);
 
 const age = document.createElement('input');
 age.setAttribute('id', 'age');
 age.setAttribute('type', 'number');
 age.setAttribute('placeholder', "Person's age");
+age.classList.add('input');
 form.appendChild(age);
 
 const role = document.createElement('input');
 role.setAttribute('id', 'role');
 role.setAttribute('type', 'text');
 role.setAttribute('placeholder', "Personn's role");
+role.classList.add('input');
 form.appendChild(role);
 
 const search = document.createElement('input');
 search.setAttribute('id', 'search');
 search.setAttribute('type', 'text');
 search.setAttribute('placeholder', 'Search ...');
+search.classList.add('input');
 form.appendChild(search);
 
 const addBtn = document.createElement('button');
 addBtn.setAttribute('id', 'add');
 addBtn.setAttribute('type', 'button');
 addBtn.innerText = 'Add';
+addBtn.classList.add('btn');
 form.appendChild(addBtn);
 
 document.body.appendChild(form);
 
 const table = document.createElement('table');
 table.setAttribute('id', 'table');
-table.setAttribute('border', 1);
+// table.setAttribute('border', 1);
 
 const tableHeader = table.createTHead();
 const rowHeader = tableHeader.insertRow(0);
@@ -88,6 +93,7 @@ const tableBody = document.createElement('tbody');
 // Append Table Header and Table body to the table
 table.appendChild(tableHeader);
 table.appendChild(tableBody);
+table.classList.add('tableStyle');
 
 document.body.appendChild(table);
 
@@ -141,16 +147,21 @@ addBtn.addEventListener('click', function () {
   cellRole.appendChild(textRole);
 
   const cellDelete = rowBody.insertCell(3);
+  cellDelete.style.textAlign = 'center';
   const deleteBtn = document.createElement('button');
   deleteBtn.setAttribute('id', 'deleteItem');
   deleteBtn.innerText = '❌';
+  deleteBtn.classList.add('innerBtn');
   cellDelete.appendChild(deleteBtn);
 
   cellDelete.addEventListener('click', function () {
     rowBody.remove();
   });
 
-  nameInput.focus();
+  personName.value = '';
+  age.value = '';
+  role.value = '';
+  personName.focus();
 });
 
 // Add event listener to search on key up
