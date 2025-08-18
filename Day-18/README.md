@@ -489,12 +489,12 @@ for (let value of mainDivElem.classList.entries()) {
 }
 ```
 
-8. _`values`_: Returns only all the classes key as array iterator and to be able to work with each class key.
+8. _`keys`_: Returns only all the classes key as array iterator and to be able to work with each class key.
 
 ```js
 const mainDivElem = document.getElementById('main-id');
 for (let key of mainDivElem.classList.keys()) {
-  console.log(key); // o then 1
+  console.log(key); // 0 then 1
 }
 ```
 
