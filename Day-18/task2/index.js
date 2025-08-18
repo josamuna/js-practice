@@ -85,24 +85,10 @@ rowHeader.appendChild(header4);
 // Table body
 const tableBody = document.createElement('tbody');
 
-// const cell2 = row.insertCell(1);
-// const cell3 = row.insertCell(2);
-
-// cell1.innerText = 'Text1';
-// cell2.innerText = 'Text2';
-// cell3.innerText = 'Text3';
-
-// tableBody.appendChild(row);
+// Append Table Header and Table body to the table
 table.appendChild(tableHeader);
 table.appendChild(tableBody);
 
-// const row = dynamicTable.insertRow(1);
-// dynamicTable.appendChild(row);
-
-// document.body.appendChild(dynamicTable);
-// row = table.insertRow(0)
-// cel1 = row.insertCell(0)
-// cel2 = row.insertCell(1)
 document.body.appendChild(table);
 
 personName.focus();
@@ -169,10 +155,30 @@ addBtn.addEventListener('click', function () {
 
 // Add event listener to search on key up
 search.addEventListener('keyup', function () {
-  const tableData = document.getElementById('table');
-  console.log(tableData.childNodes);
-  console.log(tableData.childNodes[1].childNodes);
-  console.log(tableData.childNodes[1]);
-  console.log(tableData.childNodes[1].firstChild.firstChild.innerText);
-  console.log(tableData.childNodes[1].childNodes);
+  // Get Table and input reference
+  const tableData = document.querySelector('#table');
+  const searchInput = document.querySelector('#search').value;
+
+  // The rows of table. The first childNode is Table header and the second the Table body
+  const rows = tableData.childNodes[1].childNodes;
+
+  // Iterate each rows to found an text match to apply a the correct style
+  rows.forEach((row) => {
+    row.style.display = row.firstChild.innerText
+      .toLowerCase()
+      .includes(searchInput.toLowerCase())
+      ? '' // When match, any style is apply
+      : 'none'; // When no match hide the row.
+
+    // Code using if ... else
+    // if (
+    //   row.firstChild.innerText.toLowerCase().includes(searchInput.toLowerCase())
+    // ) {
+    //   // Match is found
+    //   console.log('found');
+    //   row.style.display = '';
+    // } else {
+    //   row.style.display = 'none';
+    // }
+  });
 });

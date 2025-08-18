@@ -1,6 +1,6 @@
 # js-practice
 
-A journey to practice JavaScript concepts, ranking from beginer to advanced.
+A journey to practice JavaScript concepts, ranking from beginer to advanced with real world examples.
 
 ## Contents materials
 
