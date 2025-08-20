@@ -990,3 +990,276 @@ search.addEventListener('keyup', function () {
 - Toggle theme using a button or switch.
 - Persist the theme in localStorage and apply on page load.
 - Change background and text color based on the theme.
+
+HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./ui.css" />
+    <title>Day 18 Task</title>
+  </head>
+  <body id="main-content" class="lighTheme">
+    <h1>
+      Day 18 Task of 40 days of JavaScript - Task 3 - Switch Dark and Light Mode
+    </h1>
+    <div id="header">
+      <label class="switch">
+        <input type="checkbox" id="theme-switch" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div id="content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam fuga
+        ab inventore porro possimus in debitis consectetur, libero iusto
+        necessitatibus, consequatur tenetur perferendis nesciunt rem. Delectus
+        provident accusantium ipsam quas.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, sequi
+        repellendus voluptas vero fugiat numquam omnis similique eum, est
+        quaerat non dolorem ipsam reprehenderit suscipit labore quasi placeat
+        dolorum laboriosam? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Suscipit, deserunt vitae? Architecto, hic? Accusamus quo nesciunt
+        possimus, molestiae, eligendi error, ea ut magnam eius veritatis laborum
+        quisquam aliquam voluptatem pariatur? Lorem, ipsum dolor sit amet
+        consectetur adipisicing elit. Veritatis, amet ipsam est numquam cum
+        laborum, laboriosam corporis vel accusamus neque placeat, et
+        voluptatibus magni provident repellat explicabo voluptate iure? Harum!
+        <br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam fugiat
+        animi voluptate sequi minima earum, ratione quam a laudantium soluta
+        laborum! Id doloribus eos quibusdam earum, commodi officiis deleniti a.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem iusto
+        ducimus, tenetur et doloremque mollitia, eligendi autem harum commodi
+        aliquid odit tempore, veniam aspernatur consequuntur est! Consequuntur
+        alias et veniam? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Voluptate eum quos minima aperiam vitae voluptatem. Consequuntur
+        est quibusdam, dolore ab ducimus, provident maxime, iure harum
+        aspernatur neque quasi nulla alias.
+        <br />Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Similique laudantium sunt cupiditate odit! Architecto, qui aliquid, odio
+        praesentium a possimus ad numquam recusandae temporibus reprehenderit,
+        voluptas voluptatem libero! Vero, earum! Lorem ipsum dolor, sit amet
+        consectetur adipisicing elit. Quia necessitatibus provident at
+        voluptatibus sed. Veniam, incidunt harum? Hic quis adipisci quasi
+        laboriosam id, voluptate, quae in necessitatibus eveniet facere sint?
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos qui nam
+        id commodi eaque ea, nemo iste quidem asperiores earum repellendus rem
+        eligendi, enim repellat reiciendis eum obcaecati nobis suscipit! Lorem
+        ipsum dolor, sit amet consectetur adipisicing elit. Hic quam aspernatur
+        ex impedit dolore cumque optio tenetur nobis omnis. Totam labore iste
+        sequi voluptate eum placeat reiciendis? Non, ullam nisi? Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit. Voluptas debitis pariatur,
+        soluta, tenetur incidunt quaerat similique placeat ducimus laborum
+        facere iste accusantium, minus doloremque qui recusandae itaque
+        praesentium ex reiciendis! <br />Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. Architecto eius dicta minima quod? Saepe laboriosam,
+        id suscipit maiores tenetur repellat quos quae voluptate facilis minima
+        eveniet dolorum repellendus, magnam asperiores.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
+        harum cumque. Repellat mollitia molestiae sapiente, blanditiis
+        aspernatur iste doloribus, provident vitae laudantium ad, neque ab
+        similique quae ut ea modi. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Eos vero a natus iure, eum numquam laborum
+        voluptatibus at, quis culpa voluptates nobis quam? Voluptates a
+        exercitationem obcaecati veritatis! Possimus, in. Lorem ipsum, dolor sit
+        amet consectetur adipisicing elit. Soluta, aperiam fuga. A, quos!
+        Necessitatibus accusantium iusto voluptatem libero corrupti provident,
+        illo sunt similique obcaecati alias possimus earum pariatur cum
+        consectetur!
+        <br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, unde
+        perspiciatis repellat aperiam maxime voluptatem esse suscipit
+        voluptatum, illum nam cum nulla aspernatur? Libero blanditiis, debitis
+        necessitatibus reprehenderit sint saepe. Lorem ipsum dolor sit, amet
+        consectetur adipisicing elit. Nostrum, dolor tempora aut incidunt id
+        sequi facilis fugit. Quos dolore corrupti aut autem similique! Accusamus
+        commodi ad debitis necessitatibus aliquid obcaecati.
+      </p>
+    </div>
+  </body>
+  <script defer src="./index.js"></script>
+</html>
+```
+
+CSS
+
+```css
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+body p {
+  font-size: 17px;
+  padding: 0px 10px;
+  margin: 10px;
+  text-align: justify;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.switch-text {
+  /* box-sizing: border-box; */
+  display: inline-block;
+  font-size: large;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  color: rgb(73, 136, 208);
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+h1 {
+  margin: 20px;
+  font-size: 35px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 37px;
+  margin-left: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: 1px solid #2196f3;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: 1px solid #2196f3;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2169f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.darkTheme {
+  background-color: rgb(34, 34, 34);
+  color: #9eb2d7;
+}
+
+.darkTheme h1 {
+  color: #5681d1;
+}
+
+.lighTheme {
+  background-color: white;
+  color: rgb(18, 18, 18);
+}
+
+.lighTheme h1 {
+  color: rgb(17, 2, 132);
+}
+```
+
+JS
+
+```js
+// Handle load
+let theme = '';
+window.addEventListener('load', function () {
+  if (localStorage.getItem('apptheme')) {
+    theme = localStorage.getItem('apptheme');
+    if (theme === 'dark') {
+      applyDarkMode();
+    } else {
+      applyLightMode();
+    }
+  }
+  console.log('Theme: ', theme);
+});
+
+const themeSwitch = document.getElementById('theme-switch');
+themeSwitch.addEventListener('click', function () {
+  if (themeSwitch.checked === true) {
+    applyDarkMode();
+
+    // Persist the current theme
+    localStorage.setItem('apptheme', 'dark');
+    console.log('Dark');
+  } else {
+    applyLightMode();
+    // Persist the current theme
+    localStorage.setItem('apptheme', 'light');
+    console.log('Light');
+  }
+});
+
+function applyLightMode() {
+  document.body.classList.remove('darkTheme');
+  document.body.classList.add('lighTheme');
+}
+
+function applyDarkMode() {
+  document.body.classList.remove('lighTheme');
+  document.body.classList.add('darkTheme');
+}
+```
+
+## Screeshots
+
+### Light Theme
+
+![Image](https://github.com/user-attachments/assets/3b5585fb-5e1e-458a-9bb6-4eaae4e05d50)
+
+### Dark Theme
+
+![Image](https://github.com/user-attachments/assets/9771545b-b014-45ff-a087-d9152ded4119)

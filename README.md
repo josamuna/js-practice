@@ -38,7 +38,7 @@ A journey to practice JavaScript concepts, ranking from beginer to advanced with
 ### Module 3 - DOM and Advanced Usages
 
 - [x] Day 17: Introduction to JavaScript DOM - [Video](https://youtu.be/F4mVSaj6uls)
-- [ ] Day 18: DOM Manipulations and Project - [Video](https://youtu.be/BoYgn_Mf0hA)
+- [x] Day 18: DOM Manipulations and Project - [Video](https://youtu.be/BoYgn_Mf0hA)
 - [ ] Day 19: Master JavaScript Events Like a PRO - [Video](https://youtu.be/ybgI5vVE668)
 - [ ] Day 20: Advanced DOM Tips and Tricks - [Video](https://youtu.be/aNhPav1DgTY)
 - [ ] Day 21: Build Quiz App Using JavaScript DOM APIs - [Video](https://youtu.be/hTDeyBq5EdM)
