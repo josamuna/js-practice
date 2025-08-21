@@ -531,13 +531,13 @@ mainDivElem.style.opacity = '0.2';
 
 ### 10.1. Project 1 - Toggle Paragraph Example
 
-The project code is under project folder, precisely [./Day-18/projects/toggle/ui.html](#) folder.
+The project code is under project folder, precisely [./Day-18/projects/toggle/ui.html - Hosted on Vercel.com](https://toggleparagraph.vercel.app/) folder.
 
 ![Image](https://github.com/user-attachments/assets/0aada338-9b1c-4b89-983e-434480d111d7)
 
 ### 10.2. Project 2 - Task Manager
 
-The project code is inside project folder, precisely [./Day-18/projects/todo/ui.html](#) folder.
+The project code is inside project folder, precisely [./Day-18/projects/todo/ui.html - Hosted on Vercel.com](https://taskmanagertool.vercel.app/) folder.
 
 ![Image](https://github.com/user-attachments/assets/801daa0e-3907-4ee6-8ef7-e0efb7ecf5b2)
 
@@ -726,6 +726,8 @@ resetBtn.addEventListener('click', function () {
 ```
 
 ## Screenshots for Task 1
+
+[Submit form data from Vercel.com](https://formsubmitexample.vercel.app/)
 
 ![Image](https://github.com/user-attachments/assets/d4a63795-eab2-4541-8d76-b8248ece0274)
 
@@ -980,6 +982,8 @@ search.addEventListener('keyup', function () {
 ```
 
 ## Screeshots
+
+[Dynamic table with form from Vercel.com](https://dynamictableform.vercel.app/)
 
 ![Image](https://github.com/user-attachments/assets/34eb908f-04b2-4a9a-8830-0e28720507d0)
 
@@ -1255,6 +1259,8 @@ function applyDarkMode() {
 ```
 
 ## Screeshots
+
+[Light and Dark Theme switcher form from Vercel.com](https://lightdarktheme.vercel.app/)
 
 ### Light Theme
 
